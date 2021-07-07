@@ -134,8 +134,8 @@ void Game::spawnEnemy()
 
     //Spawn the enemy
     this->enemies.push_back(this->enemy);
-
 }
+
 void Game::pollEvents()
 {
     //Events polling
@@ -213,7 +213,6 @@ void Game::updateEnemies()
             this->enemies.erase(this->enemies.begin() + i);
             this->health -= 1;
         }
-
     }
 
     //Check if clicked upon
@@ -277,6 +276,7 @@ void Game::update()
         this->endGame = true;
     }
 }
+
 void Game::renderText(sf::RenderTarget& target)
 {   
     target.draw(this->uiText);
@@ -310,5 +310,4 @@ void Game::render()
     this->player.render(this->window);
 
     this->window->display();
-
 }

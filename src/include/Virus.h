@@ -5,11 +5,13 @@
 
 class Virus : public Entidad
 {
-    private:
+private:
+
+    float points;
     
-    public:
-        Virus() : Entidad(){};
-        ~Virus();
+public:
+    Virus() : Entidad(){};
+    ~Virus();
 };
 
 #endif  //VIRUS_H

@@ -5,13 +5,13 @@ using namespace sf;
 int main()
 {
 
-    //Inicializa rand
+    //Initialize random seed
     std::srand(static_cast<unsigned>(time(NULL)));
 
-    //Inicializa game engine
+    //Initialize game engine
     Game game;
 
-    //Ciclo del juego
+    //Game loop
     while (game.running() && !game.getEndGame())
     {
         //Update
@@ -19,6 +19,6 @@ int main()
         //Render
         game.render();
     }
-    //Fin de la aplicacion
+    //End of application
     return 0;
 }

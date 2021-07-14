@@ -1,6 +1,6 @@
 /*
-    Cles que actua como el game engine
-    Wrapper class.
+    Cles that acts as the game engine.
+    Wrapper Class
 */
 
 #ifndef GAME_H

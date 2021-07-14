@@ -11,8 +11,3 @@ Entidad::~Entidad()
 {
     
 }
-
-void Entidad::sizeEntidad()
-{
-
-}

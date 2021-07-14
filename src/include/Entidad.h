@@ -15,11 +15,21 @@
 class Entidad
 {
 protected:
+
     float health;
     sf::Vector2f size;
     float movementSpeed;
     sf::Texture texture;
+    sf::RectangleShape shape;
+
+    //Protected functions
+    virtual void initVariables();
+    virtual void initTexture();
+    void initShape();
+
 public:
+    sf::RectangleShape shape;
+
     Entidad();
     virtual ~Entidad();
 };

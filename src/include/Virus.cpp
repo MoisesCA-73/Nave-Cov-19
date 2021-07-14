@@ -1,6 +1,6 @@
 #include "Virus.h"
 
-//Constructor y destructor
+//Constructor and destructor
 
 Virus::Virus()
 {

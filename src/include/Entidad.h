@@ -1,5 +1,6 @@
 /*
-    Todo objeto que cae y que puede ser destruido
+    Abstract Class that represents every object
+    that falls down and can be destroyed
 */
 
 #ifndef ENTIDAD_H
@@ -13,14 +14,14 @@
 
 class Entidad
 {
-    protected:
-        float health;
-        float size;
-
-    public:
-        Entidad();
-        void sizeEntidad();
-        virtual ~Entidad();
+protected:
+    float health;
+    sf::Vector2f size;
+    float movementSpeed;
+    sf::Texture texture;
+public:
+    Entidad();
+    virtual ~Entidad();
 };
 
 #endif  //ENTIDAD_H

@@ -80,7 +80,6 @@ public:
     
     void update();
 
-
     void renderText(sf::RenderTarget& target);
     void renderEnemies(sf::RenderTarget& target);
     void render();

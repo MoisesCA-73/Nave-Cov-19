@@ -4,7 +4,7 @@
 
 Virus::Virus()
 {
-
+    
 }
 
 Virus::~Virus()

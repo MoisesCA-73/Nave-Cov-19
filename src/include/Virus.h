@@ -6,7 +6,7 @@
 class Virus : public Entidad
 {
     private:
-
+    
     public:
         Virus() : Entidad(){};
         ~Virus();

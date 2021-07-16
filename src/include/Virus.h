@@ -12,6 +12,8 @@ private:
 public:
     Virus() : Entidad(){};
     ~Virus();
+
+    virtual void initVariables() override;
 };
 
 #endif  //VIRUS_H

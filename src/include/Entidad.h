@@ -16,7 +16,7 @@ class Entidad
 {
 protected:
 
-    float health;
+    int health;
     sf::Vector2f size;
     float movementSpeed;
     sf::Texture texture;

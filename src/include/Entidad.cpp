@@ -1,10 +1,22 @@
 #include "Entidad.h"
 
+//Init and private functions
+void Entidad::initVariables()
+{
+    
+}
+void Entidad::initTexture()
+{
+
+}
+
 //Constructor
 
 Entidad::Entidad()
 {
-    this->health = 10.f;
+    this->initVariables();
+    this->initShape();
+    this->initTexture();
 }
 
 Entidad::~Entidad()

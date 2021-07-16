@@ -9,6 +9,8 @@
 #include <SFML/System.hpp>
 #include <SFML/Network.hpp>
 
+#include "Bullet.h"
+
 class Player
 {
 private:

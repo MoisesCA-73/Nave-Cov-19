@@ -17,7 +17,9 @@
 class Bullet
 {
 private:
-
+    sf::Vector2f size;
+    int damage;
+    float fireRate;
 public:
     //Constructor
     Bullet();

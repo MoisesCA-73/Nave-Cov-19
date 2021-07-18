@@ -23,6 +23,8 @@ private:
     int damage;
     float fireRate;
     float movementSpeed;
+    void initVariables();
+    void initTexture();
 public:
     //Constructor
     Bullet();

@@ -17,15 +17,14 @@ class Entidad
 protected:
 
     int health;
-    sf::Vector2f size;
     float movementSpeed;
     sf::Texture texture;
     sf::RectangleShape shape;
 
     //Protected functions
-    virtual void initVariables();
-    virtual void initTexture();
-    void initShape();
+    virtual void initVariables()=0;
+    virtual void initTexture()=0;
+    virtual void initShape()=0;
 
 public:
     sf::RectangleShape shape;

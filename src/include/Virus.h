@@ -3,9 +3,9 @@
 
 #include "Entidad.h"
 
-class Virus : public Entidad
+class Virus : protected Entidad
 {
-private:
+protected:
 
     float points;
     
@@ -13,7 +13,6 @@ public:
     Virus() : Entidad(){};
     ~Virus();
 
-    virtual void initVariables() override;
 };
 
 #endif  //VIRUS_H

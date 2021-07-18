@@ -53,8 +53,6 @@ void Game::initEnemies()
     this->enemy.setPosition(10.f,10.f);
     this->enemy.setSize(sf::Vector2f(100.f, 100.f));
     this->enemy.setFillColor(sf::Color::Cyan);
-    //this->enemy.setOutlineColor(sf::Color::Red);
-    //this->enemy.setOutlineThickness(2.f);
 }
 
 //Constructors / Destructors
@@ -99,7 +97,7 @@ void Game::spawnEnemy()
         -Adds enemy to vector
     */
 
-    this->enemy.setPosition(static_cast<float>(rand() % static_cast<int>(this->window->getSize().x - this->enemy.getSize().x)),0.f);
+    this->enemy.setPosition(static_cast<float>(rand() % static_cast<int>(this->window->getSize().x - this->enemy.getSize().x)),-100.f);
 
     //Randomiza enemy type
     int type = rand() % 5;

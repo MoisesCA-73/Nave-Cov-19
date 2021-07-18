@@ -56,6 +56,7 @@ private:
 
     //Private functions
     void initVariables();
+    void initPlayer();
     void initWindow();
     void initFonts();
     void initText();

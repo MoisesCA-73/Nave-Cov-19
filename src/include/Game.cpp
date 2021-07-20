@@ -22,7 +22,7 @@ void Game::initWindow()
     this->videoMode.height = 600;
     this->videoMode.width = 800;
 
-    this->window = new sf::RenderWindow(this->videoMode, "Beating Covid for once!", sf::Style::Titlebar | sf::Style::Close);
+    this->window = new sf::RenderWindow(this->videoMode, "Nave Cov-19", sf::Style::Titlebar | sf::Style::Close);
     this->window->setFramerateLimit(60);
 }
 

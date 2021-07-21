@@ -37,7 +37,7 @@ void Game::initFonts()
 void Game::initText()
 {
     this->uiText.setFont(this->font);
-    this->uiText.setCharacterSize(24);
+    this->uiText.setCharacterSize(32);
     this->uiText.setFillColor(sf::Color::White);
     this->uiText.setString("NONE");
 }
@@ -253,28 +253,38 @@ void Game::updateEnemies()
     }
 }
 
+
 void Game::update()
 {
     /*
         Updates the game during the game loop
     */
     this->pollEvents();
-    if (!this->endGame)
+
+    this->updateMousePosition();
+
+    if (this->menu.getIsOpened())
     {
-        this->updateMousePosition();
-
-        this->updateText();
-
-        this->updateEnemies();
-        this->player.update(this->window);
+        this->menu.update(this->window, this->mousePosView);
     }
-
-
-    if (this->health <= 0)
+    else
     {
-        this->endGame = true;
+        if (!this->endGame)
+        {
+
+            this->updateText();
+
+            this->updateEnemies();
+            this->player.update(this->window);
+        }
+        if (this->health <= 0)
+        {
+            this->endGame = true;
+        }
     }
 }
+
+
 void Game::renderText(sf::RenderTarget& target)
 {   
     target.draw(this->uiText);
@@ -299,13 +309,21 @@ void Game::render()
         Renders the game objects
     */
     this->window->clear();
+    
+    if (this->menu.getIsOpened())
+    {
+        menu.draw(*this->window);
+    }
+    else
+    {
 
-    //Draw game objects
-    this->renderEnemies(*this->window);
+        //Draw game objects
+        this->renderEnemies(*this->window);
 
-    this->renderText(*this->window);
+        this->renderText(*this->window);
 
-    this->player.render(this->window);
+        this->player.render(this->window);
+    }
 
     this->window->display();
 

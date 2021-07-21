@@ -7,9 +7,10 @@ int main()
 
     //Initialize random seed
     std::srand(static_cast<unsigned>(time(NULL)));
-
     //Initialize game engine
     Game game;
+
+    //Menu
 
     //Game loop
     while (game.running() && !game.getEndGame())

@@ -18,6 +18,7 @@
 #include <SFML/Network.hpp>
 
 #include "Player.h"
+#include "Menu.h"
 
 class Game
 {
@@ -26,6 +27,7 @@ private:
     sf::RenderWindow* window;
     sf::VideoMode videoMode;
     sf::Event ev;
+    Menu menu;
 
     //Mouse  positions
     sf::Vector2i mousePosWindow;
@@ -78,6 +80,7 @@ public:
     void updateMousePosition();
     void updateText();
     void updateEnemies();
+    void updateMenu();
     
     void update();
 

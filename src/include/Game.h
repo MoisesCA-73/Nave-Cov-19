@@ -23,8 +23,7 @@
 class Game
 {
 private:
-
-    sf::RenderWindow* window;
+    sf::RenderWindow *window;
     sf::VideoMode videoMode;
     sf::Event ev;
     Menu menu;
@@ -55,7 +54,6 @@ private:
     std::vector<sf::RectangleShape> enemies;
     sf::RectangleShape enemy;
 
-
     //Private functions
     void initVariables();
     void initPlayer();
@@ -80,14 +78,13 @@ public:
     void updateMousePosition();
     void updateText();
     void updateEnemies();
-    void updateMenu();
-    
+    //void updateMenu();
+
     void update();
 
-    void renderText(sf::RenderTarget& target);
-    void renderEnemies(sf::RenderTarget& target);
+    void renderText(sf::RenderTarget &target);
+    void renderEnemies(sf::RenderTarget &target);
     void render();
 };
 
-
-#endif 
+#endif

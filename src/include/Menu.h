@@ -31,11 +31,10 @@ public:
     ~Menu();
 
     bool getIsOpened() const;
-
+    void setIsopened(bool initiate);
     void hide();
-    void update(const sf::RenderTarget* target, sf::Vector2f mousePosView);
+    void update(const sf::RenderTarget *target, sf::Vector2f mousePosView);
     void draw(sf::RenderWindow &window);
 };
 
-
-#endif  //MENU_H
+#endif //MENU_H

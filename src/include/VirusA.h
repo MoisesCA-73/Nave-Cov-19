@@ -2,6 +2,7 @@
     First type of enemy
 
     Se le cambiara el nombre cuando decidan un nombre para los virus, si le ponemos los nombres de las variantes? xd
+    - ah claro jsjs c:
 */
 #ifndef VIRUSA_H
 #define VIRUSA_H

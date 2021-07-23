@@ -32,7 +32,6 @@ public:
 
     bool getIsOpened() const;
     void setIsopened(bool initiate);
-    void hide();
     void update(const sf::RenderTarget *target, sf::Vector2f mousePosView);
     void draw(sf::RenderWindow &window);
 };

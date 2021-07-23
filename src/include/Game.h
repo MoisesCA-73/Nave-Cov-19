@@ -26,7 +26,11 @@ private:
     sf::RenderWindow *window;
     sf::VideoMode videoMode;
     sf::Event ev;
+    
+    //Menus
     Menu menu;
+    Menu pauseMenu;
+    Menu deathMenu;
 
     //Mouse  positions
     sf::Vector2i mousePosWindow;

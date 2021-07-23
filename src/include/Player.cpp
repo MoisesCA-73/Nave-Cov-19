@@ -3,7 +3,7 @@
 
 void Player::initVariables()
 {
-    this->movementSpeed = 10.f;
+    this->movementSpeed = 6.f;
 }
 
 void Player::initTexture()

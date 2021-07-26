@@ -263,6 +263,10 @@ void Game::update()
     {
         this->menu.update(this->window, this->mousePosView);
     }
+    else if(this->pauseMenu.getIsOpened())
+    {
+        this->pauseMenu.update(this->window, this->mousePosView);
+    }
     else
     {
         if (!this->endGame)

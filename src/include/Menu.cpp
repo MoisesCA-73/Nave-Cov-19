@@ -3,7 +3,7 @@
 
 Menu::Menu()
 {
-    if (!this->font.loadFromFile("Fonts/Dosis-Light.ttf"))
+    if (!this->font.loadFromFile("Fonts/Debug.ttf"))
     {
         std::cout << "ERROR::GAME::INITFONTS:: Failed to load font!" << '\n';
     }
@@ -11,7 +11,7 @@ Menu::Menu()
     {
         sf::Text text;
         text.setFont(this->font);
-        text.setCharacterSize(32);
+        text.setCharacterSize(64);
         text.setFillColor(sf::Color::White);
         this->menu.push_back(text);
     }

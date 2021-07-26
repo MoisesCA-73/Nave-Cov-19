@@ -1,7 +1,7 @@
 # Nave-COV-19
 Juego de naves clasica, esta vez luchando contra el virus de la COVID-19 a traves de un viaje contra virus mas poderosos
 
-##Como usar?
+## Como usar?
 
 1. Git Clone a https://github.com/MoisesCA-73/Nave-Cov-19
 2. Eejecutar el makefile, utilizando el comando make o mingw32-make en la consola

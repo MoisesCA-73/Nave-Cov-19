@@ -86,12 +86,19 @@ void Player::updateWindowBoundsCollision(const sf::RenderTarget * target)
     }
 
 }
+
+void Player::updateBullet()
+{
+    bullet.update(this->shape.getPosition());
+}
 void Player::update(const sf::RenderTarget* target)
 {
     this->updateInput();
     this->updateWindowBoundsCollision(target);
+    this->updateBullet();
 }
 void Player::render(sf::RenderTarget* target)
 {
     target->draw(this->shape);
+    this->bullet.render(target);
 }

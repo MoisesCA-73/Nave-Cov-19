@@ -24,7 +24,6 @@ private:
 
     bool isOpened;
     bool closeGame;
-    //Private methods
 
 public:
     //Constructor - Destructor

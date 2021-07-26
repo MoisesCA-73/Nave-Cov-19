@@ -14,26 +14,36 @@
 #include <SFML/System.hpp>
 #include <SFML/Network.hpp>
 
+
 class Bullet
 {
 private:
-    sf::Sprite shape;
+    //Ammo
+    sf::RectangleShape shape;
+    sf::Texture bulletTexture;
     sf::Vector2f size;
     sf::Vector2f direction;
+    //Bullet attributes
     int damage;
     float fireRate;
     float movementSpeed;
+
+    bool keyHeld;
+
+    //Private functions
     void initVariables();
     void initTexture();
 public:
-    //Constructor
+    //Constructors
     Bullet();
-
     Bullet(sf::Texture& texture,float dir_x,float dir_y,float movement_speed);
     //Destructor
     ~Bullet();
+
+    void shoot(sf::Vector2f coord);
     //Functions
-    void update();
+    void updateInput(sf::Vector2f coord);
+    void update(sf::Vector2f coord);
     void render(sf::RenderTarget* target);
 };
 

@@ -20,6 +20,8 @@ private:
 
     sf::Texture playerTexture;
 
+    Bullet bullet;
+
     //Funciones privadas
     void initVariables();
     void initTexture();
@@ -33,6 +35,8 @@ public:
 
     //Actualiza el choque con los limites de la ventana
     void updateWindowBoundsCollision(const sf::RenderTarget* target);
+
+    void updateBullet();
 
     //Actualiza su posicion en la ventana
     void update(const sf::RenderTarget* target);

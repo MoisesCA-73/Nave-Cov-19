@@ -23,14 +23,17 @@ private:
     std::vector<sf::Text> menu;
 
     bool isOpened;
-
+    bool closeGame;
     //Private methods
 
 public:
+    //Constructor - Destructor
     Menu();
     ~Menu();
-
+    //Accesors
     bool getIsOpened() const;
+    bool getCloseGame() const;
+    //Functions
     void setIsopened(bool initiate);
     void update(const sf::RenderTarget *target, sf::Vector2f mousePosView);
     void draw(sf::RenderWindow &window);

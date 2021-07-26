@@ -26,7 +26,7 @@ private:
     sf::RenderWindow *window;
     sf::VideoMode videoMode;
     sf::Event ev;
-    
+
     //Menus
     Menu menu;
     Menu pauseMenu;

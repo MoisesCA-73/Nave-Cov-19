@@ -262,6 +262,10 @@ void Game::update()
     if (this->menu.getIsOpened())
     {
         this->menu.update(this->window, this->mousePosView);
+        if (this->menu.getCloseGame())
+        {
+            this->endGame = this->menu.getCloseGame();
+        }
     }
     else if(this->pauseMenu.getIsOpened())
     {

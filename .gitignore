@@ -1,5 +1,6 @@
 *.exe
 *.dll
+*.o
 /.vscode
 /src/include/SFML
 /src/lib

@@ -7,6 +7,7 @@
 #define BULLET_H
 
 #include <iostream>
+#include <vector>
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
@@ -23,6 +24,8 @@ private:
     sf::Texture bulletTexture;
     sf::Vector2f size;
     sf::Vector2f direction;
+
+    std::vector<sf::RectangleShape> bullets;
     //Bullet attributes
     int damage;
     float fireRate;
@@ -40,8 +43,10 @@ public:
     //Destructor
     ~Bullet();
 
+    void spawnBullet(sf::Vector2f coord);
     void shoot(sf::Vector2f coord);
     //Functions
+    void updateBullets();
     void updateInput(sf::Vector2f coord);
     void update(sf::Vector2f coord);
     void render(sf::RenderTarget* target);

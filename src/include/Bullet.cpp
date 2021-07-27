@@ -37,19 +37,40 @@ Bullet::~Bullet()
 
 }
 
+
 void Bullet::shoot(sf::Vector2f coord)
 {
     this->shape.setPosition(coord.x, coord.y);
-
+    this->bullets.push_back(this->shape);
 }
 
+void Bullet::updateBullets()
+{
+    for (size_t i = 0; i < this->bullets.size(); i++)
+    {
+
+        this->bullets[i].move(0.f, -movementSpeed);
+
+        if (this->bullets[i].getPosition().y < 0.f)
+        {
+            this->bullets.erase(this->bullets.begin() + i);
+            i--;
+        }
+    }
+}
 void Bullet::updateInput(sf::Vector2f coord)
 {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::F))
     {
-        this->keyHeld = true;
-        this->shoot(coord);
-
+        if (!this->keyHeld)
+        {
+            this->keyHeld = true;
+            this->shoot(coord);
+        }
+    }
+    else
+    {
+        this->keyHeld = false;
     }
 }
 
@@ -59,10 +80,13 @@ void Bullet::updateInput(sf::Vector2f coord)
 void Bullet::update(sf::Vector2f coord)
 {
     this->updateInput(coord);
-    this->shape.move(0.f, -movementSpeed);
+    this->updateBullets();
 }
 
 void Bullet::render(sf::RenderTarget* target)
 {
-    target->draw(this->shape);
+    for (auto& e : bullets)
+    {
+        target->draw(e);
+    }
 }

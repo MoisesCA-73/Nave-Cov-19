@@ -99,7 +99,7 @@ void Game::spawnEnemy()
 
     this->enemy.setPosition(static_cast<float>(rand() % static_cast<int>(this->window->getSize().x - this->enemy.getSize().x)), -100.f);
 
-    //Randomiza enemy type
+    //Randomize enemy type
     int type = rand() % 5;
 
     switch (type)

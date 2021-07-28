@@ -145,7 +145,7 @@ void Game::pollEvents()
             break;
         case sf::Event::KeyPressed:
             if (this->ev.key.code == sf::Keyboard::Escape)
-                this->menu.setIsopened(true);
+                this->startMenu.setIsopened(true);
             break;
         }
     }
@@ -259,12 +259,12 @@ void Game::update()
 
     this->updateMousePosition();
 
-    if (this->menu.getIsOpened())
+    if (this->startMenu.getIsOpened())
     {
-        this->menu.update(this->window, this->mousePosView);
-        if (this->menu.getCloseGame())
+        this->startMenu.update(this->window, this->mousePosView);
+        if (this->startMenu.getCloseGame())
         {
-            this->endGame = this->menu.getCloseGame();
+            this->endGame = this->startMenu.getCloseGame();
         }
     }
     else if(this->pauseMenu.getIsOpened())
@@ -313,9 +313,9 @@ void Game::render()
     */
     this->window->clear();
 
-    if (this->menu.getIsOpened())
+    if (this->startMenu.getIsOpened())
     {
-        menu.draw(*this->window);
+        this->startMenu.draw(*this->window);
     }
     else
     {

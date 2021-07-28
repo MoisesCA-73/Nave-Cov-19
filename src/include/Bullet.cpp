@@ -5,7 +5,7 @@ void Bullet::initVariables()
     this->movementSpeed = 20.f;
     this->keyHeld = false;
     this->shape.setTexture(&this->bulletTexture);
-    this->size = sf::Vector2f(20.f,20.f);
+    this->size = sf::Vector2f(20.f,40.f);
     this->shape.setSize(this->size);
 }
 
@@ -40,7 +40,7 @@ Bullet::~Bullet()
 
 void Bullet::shoot(sf::Vector2f coord)
 {
-    this->shape.setPosition(coord.x, coord.y);
+    this->shape.setPosition(coord.x + 12.5, coord.y);
     this->bullets.push_back(this->shape);
 }
 
@@ -60,7 +60,7 @@ void Bullet::updateBullets()
 }
 void Bullet::updateInput(sf::Vector2f coord)
 {
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::F))
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::K))
     {
         if (!this->keyHeld)
         {

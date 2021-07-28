@@ -1,7 +1,8 @@
-#include <iostream>
-#include "Menu.h"
+#include "PauseMenu.h"
 
-Menu::Menu()
+#include <iostream>
+
+PauseMenu::PauseMenu()
 {
     if (!this->font.loadFromFile("Fonts/Debug.ttf"))
     {
@@ -30,38 +31,51 @@ Menu::Menu()
     this->closeGame = false;
 }
 
-Menu::~Menu()
+PauseMenu::~PauseMenu()
 {
 }
 //Accesors
-bool Menu::getIsOpened() const
+bool PauseMenu::getIsOpened() const
 {
     return isOpened;
 }
-bool Menu::getCloseGame() const
+bool PauseMenu::getCloseGame() const
 {
     return closeGame;
 }
 //functions
-void Menu::setIsopened(bool initiate)
+void PauseMenu::setIsopened(bool initiate)
 {
     this->isOpened = initiate;
 }
-void Menu::update(const sf::RenderTarget *target, sf::Vector2f mousePosView)
+void PauseMenu::update(const sf::RenderTarget *target, sf::Vector2f mousePosView)
 {
     for (int i = 0; i < MAX_NUMBER_OF_ITEMS; i++)
     {
-        if (this->menu[i].getGlobalBounds().contains(mousePosView))
+        if (this->menu[0].getGlobalBounds().contains(mousePosView))
         {
-            menu[i].setFillColor(sf::Color::Red);
+            menu[0].setFillColor(sf::Color::Red);
             if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
             {
-                this->selectedItemIndex = i;
-                if (i == 2)
-                {
-                    this->closeGame = true;
-                }
+                //this->selectedItemIndex = i;
                 this->isOpened = false;
+            }
+        }
+        else if (this->menu[1].getGlobalBounds().contains(mousePosView))
+        {
+            menu[1].setFillColor(sf::Color::Red);
+            if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+            {
+                //this->selectedItemIndex = i;
+                this->isOpened = false;
+            }
+        }
+        else if (this->menu[2].getGlobalBounds().contains(mousePosView))
+        {
+            menu[2].setFillColor(sf::Color::Red);
+            if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+            {
+                this->closeGame = true;
             }
         }
         else
@@ -70,7 +84,7 @@ void Menu::update(const sf::RenderTarget *target, sf::Vector2f mousePosView)
         }
     }
 }
-void Menu::draw(sf::RenderWindow &window)
+void PauseMenu::draw(sf::RenderWindow &window)
 {
     for (size_t i = 0; i < MAX_NUMBER_OF_ITEMS; i++)
     {

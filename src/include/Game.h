@@ -28,7 +28,7 @@ private:
     sf::Event ev;
 
     //Menus
-    Menu menu;
+    Menu startMenu;
     Menu pauseMenu;
     Menu deathMenu;
 

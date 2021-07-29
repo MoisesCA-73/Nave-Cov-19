@@ -29,9 +29,8 @@ private:
     //Bullet attributes
     int damage;
     float fireRate;
+    float fireRateCount;
     float movementSpeed;
-
-    bool keyHeld;
 
     //Private functions
     void initVariables();

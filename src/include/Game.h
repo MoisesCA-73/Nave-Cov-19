@@ -19,7 +19,7 @@
 
 #include "Player.h"
 #include "Menu.h"
-
+#include "Virus.h"
 class Game
 {
 private:
@@ -55,6 +55,7 @@ private:
     Player player;
 
     //Game objects
+    Virus v;
     std::vector<sf::RectangleShape> enemies;
     sf::RectangleShape enemy;
 

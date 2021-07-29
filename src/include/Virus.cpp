@@ -9,22 +9,36 @@ void Virus::initVariables()
 }
 void Virus::initTexture()
 {
-    if (!this->texture.loadFromFile("Textures/nave.png"))
+    if (!this->texture.loadFromFile("Textures/virus.png"))
     {
-        std::cout << "ERROR::PLAYER::INITEXTURE::Could not load texture" << std::endl;
+        std::cout << "ERROR::Virus::INITEXTURE::Could not load texture" << std::endl;
     }
 }
 void Virus::initShape()
 {
     this->shape.setTexture(&this->texture);
-    //this->shape.
+    this->shape.setSize(sf::Vector2f(50.f, 50.f));
+    this->shape.setPosition(0, 0);
 }
 //Constructor and destructor
 
-Virus::Virus() : Entidad()
+Virus::Virus()
 {
+    this->initVariables();
+    this->initTexture();
+    this->initShape();
 }
 
 Virus::~Virus()
 {
+}
+void Virus::update()
+{
+}
+void Virus::updateInput()
+{
+}
+void Virus::render(sf::RenderTarget *target)
+{
+    target->draw(this->shape);
 }

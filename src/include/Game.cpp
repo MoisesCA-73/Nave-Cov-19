@@ -267,7 +267,7 @@ void Game::update()
             this->endGame = this->startMenu.getCloseGame();
         }
     }
-    else if(this->pauseMenu.getIsOpened())
+    else if (this->pauseMenu.getIsOpened())
     {
         this->pauseMenu.update(this->window, this->mousePosView);
     }
@@ -326,6 +326,7 @@ void Game::render()
         this->renderText(*this->window);
 
         this->player.render(this->window);
+        this->v.render(this->window);
     }
 
     this->window->display();

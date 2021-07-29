@@ -26,16 +26,9 @@ protected:
     virtual void initShape() = 0;
 
 public:
-    Entidad();
-    virtual ~Entidad() = 0;
+    //virtual ~Entidad() = 0;
     virtual void update() = 0;
     virtual void updateInput() = 0;
-    virtual void render() = 0;
+    virtual void render(sf::RenderTarget *target) = 0;
 };
-Entidad::Entidad()
-{
-    this->initVariables();
-    this->initTexture();
-    this->initShape();
-}
 #endif //ENTIDAD_H

@@ -12,11 +12,11 @@ protected:
     void initShape();
 
 public:
-    Virus() : Entidad(){};
+    Virus();
     ~Virus();
     void update();
     void updateInput();
-    void render();
+    void render(sf::RenderTarget *target);
 };
 
 #endif //VIRUS_H

@@ -15,6 +15,7 @@
 #include <SFML/System.hpp>
 #include <SFML/Network.hpp>
 
+#include "Virus.h"
 
 class Bullet
 {
@@ -46,11 +47,12 @@ public:
     float getFireRate() const;
     
     //Mutators
-    float setFireRate(float fireRate);
+    void setFireRate(float fireRate);
 
 
     void spawnBullet(sf::Vector2f coord);
     void shoot(sf::Vector2f coord);
+    void dealDamage(Virus enemy);
     //Functions
     void updateBullets();
     void updateInput(sf::Vector2f coord);

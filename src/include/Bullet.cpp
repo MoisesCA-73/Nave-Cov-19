@@ -34,7 +34,7 @@ float Bullet::getFireRate() const
     return this->fireRate;
 }
 
-float Bullet::setFireRate(float fireRate)
+void Bullet::setFireRate(float fireRate)
 {
     this->fireRate = this->fireRate;
 }
@@ -48,6 +48,10 @@ void Bullet::shoot(sf::Vector2f coord)
     this->bullets.push_back(this->shape);
 }
 
+void Bullet::dealDamage(Virus enemy)
+{
+}
+
 void Bullet::updateBullets()
 {
     for (size_t i = 0; i < this->bullets.size(); i++)
@@ -55,7 +59,7 @@ void Bullet::updateBullets()
 
         this->bullets[i].move(0.f, -movementSpeed);
 
-        if (this->bullets[i].getPosition().y < 0.f)
+        if (this->bullets[i].getPosition().y + this->bullets[i].getSize().y < 0.f)
         {
             this->bullets.erase(this->bullets.begin() + i);
             i--;
@@ -64,17 +68,17 @@ void Bullet::updateBullets()
 }
 void Bullet::updateInput(sf::Vector2f coord)
 {
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::K))
+    if (this->fireRateCount >= this->fireRate)
     {
-        if (this->fireRateCount >= this->fireRate)
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::K))
         {
-            this->shoot(coord);
-            this->fireRateCount = 0.f;
+                this->shoot(coord);
+                this->fireRateCount = 0.f;
         }
-        else
-        {
-            this->fireRateCount += 1.0;
-        }
+    }
+    else
+    {
+        this->fireRateCount += 1.f;
     }
 }
 

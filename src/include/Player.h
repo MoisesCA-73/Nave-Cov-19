@@ -38,6 +38,7 @@ public:
 
     //Recibe daño
     void Danio(const int danio);
+    void RecibirDanio();
 
     //Evalua las teclas presionadas
     void updateInput();

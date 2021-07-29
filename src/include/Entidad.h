@@ -15,8 +15,6 @@
 class Entidad
 {
 protected:
-
-    int health;
     float movementSpeed;
     sf::Texture texture;
     sf::RectangleShape shape;
@@ -27,7 +25,6 @@ protected:
     virtual void initShape()=0;
 
 public:
-    sf::RectangleShape shape;
 
     Entidad();
     virtual ~Entidad();

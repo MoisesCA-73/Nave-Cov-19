@@ -23,7 +23,9 @@ void Player::initShape()
 
 //Constructor
 Player::Player(float x, float y)
-{
+{   
+    this->shape.setPosition(x,y);
+
     this->initVariables();
     this->initTexture();
     this->initShape();
@@ -33,6 +35,15 @@ Player::Player(float x, float y)
 Player::~Player()
 {
 
+}
+
+void Player::Danio(const int danio){
+    if(this->hp > 0){
+        this->hp -= danio;
+    }
+    if(this->hp < 0){
+        this->hp = 0;
+    }
 }
 
 //Funciones publicas

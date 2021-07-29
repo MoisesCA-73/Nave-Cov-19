@@ -1,5 +1,5 @@
 /*
-    Cles that acts as the game engine.
+    Class that acts as the game engine.
     Wrapper Class
 */
 

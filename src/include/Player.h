@@ -17,6 +17,7 @@ private:
     sf::RectangleShape shape;
 
     float movementSpeed;
+    int hp;
 
     sf::Texture playerTexture;
 
@@ -29,6 +30,12 @@ private:
 public:
     Player(float x = 0.f, float y = 0.f);
     virtual ~Player();
+
+    //Acesos
+    const int& getHp() const;
+
+    //Recibe daño
+    void Danio(const int danio);
 
     //Evalua las teclas presionadas
     void updateInput();

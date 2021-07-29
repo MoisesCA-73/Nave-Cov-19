@@ -1,9 +1,6 @@
 *.exe
 *.dll
-Menu.o
-Game.o
-Player.o
-Bullet.o
+*.o
 
 /.vscode
 /src/include/SFML

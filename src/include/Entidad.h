@@ -11,26 +11,31 @@
 #include <SFML/Audio.hpp>
 #include <SFML/System.hpp>
 #include <SFML/Network.hpp>
-
+#include <iostream>
 class Entidad
 {
 protected:
-
     int health;
     float movementSpeed;
     sf::Texture texture;
     sf::RectangleShape shape;
 
     //Protected functions
-    virtual void initVariables()=0;
-    virtual void initTexture()=0;
-    virtual void initShape()=0;
+    virtual void initVariables() = 0;
+    virtual void initTexture() = 0;
+    virtual void initShape() = 0;
 
 public:
-    sf::RectangleShape shape;
-
     Entidad();
-    virtual ~Entidad();
+    virtual ~Entidad() = 0;
+    virtual void update() = 0;
+    virtual void updateInput() = 0;
+    virtual void render() = 0;
 };
-
-#endif  //ENTIDAD_H
+Entidad::Entidad()
+{
+    this->initVariables();
+    this->initTexture();
+    this->initShape();
+}
+#endif //ENTIDAD_H

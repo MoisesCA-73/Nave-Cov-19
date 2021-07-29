@@ -37,6 +37,11 @@ Player::~Player()
 
 }
 
+Bullet Player::getBullet() const
+{
+    return this->bullet;
+}
+
 void Player::Danio(const int danio){
     if(this->hp > 0){
         this->hp -= danio;

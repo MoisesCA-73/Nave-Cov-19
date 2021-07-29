@@ -23,6 +23,7 @@ private:
 
     Bullet bullet;
 
+
     //Funciones privadas
     void initVariables();
     void initTexture();
@@ -31,7 +32,8 @@ public:
     Player(float x = 0.f, float y = 0.f);
     virtual ~Player();
 
-    //Acesos
+    //Accessors
+    Bullet getBullet() const;
     const int& getHp() const;
 
     //Recibe daño

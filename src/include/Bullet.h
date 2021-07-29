@@ -25,6 +25,7 @@ private:
     sf::Vector2f size;
     sf::Vector2f direction;
 
+    //Bullets moving
     std::vector<sf::RectangleShape> bullets;
     //Bullet attributes
     int damage;
@@ -38,9 +39,15 @@ private:
 public:
     //Constructors
     Bullet();
-    Bullet(sf::Texture& texture,float dir_x,float dir_y,float movement_speed);
     //Destructor
     ~Bullet();
+
+    //Accessors
+    float getFireRate() const;
+    
+    //Mutators
+    float setFireRate(float fireRate);
+
 
     void spawnBullet(sf::Vector2f coord);
     void shoot(sf::Vector2f coord);

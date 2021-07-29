@@ -4,7 +4,7 @@ void Bullet::initVariables()
 {
     this->movementSpeed = 20.f;
     this->shape.setTexture(&this->bulletTexture);
-    this->size = sf::Vector2f(20.f,40.f);
+    this->size = sf::Vector2f(20.f, 40.f);
     this->shape.setSize(this->size);
     this->fireRate = 10.f;
     this->fireRateCount = this->fireRate;
@@ -23,20 +23,22 @@ Bullet::Bullet()
     this->initTexture();
     this->initVariables();
 }
-//Intentemos crear funciones privadas y esas ejecutarlas en los constructores
-//asi como esta en Player.cpp o Game.cpp 
-Bullet::Bullet(sf::Texture& texture, float dir_x, float dir_y, float movement_speed)
-{
-    this->shape.setTexture(&texture);
 
-    this->direction.x = dir_x;
-    this->direction.y = dir_y;
-    this->movementSpeed = movement_speed;
-}
 Bullet::~Bullet()
 {
 
 }
+
+float Bullet::getFireRate() const
+{
+    return this->fireRate;
+}
+
+float Bullet::setFireRate(float fireRate)
+{
+    this->fireRate = this->fireRate;
+}
+
 
 
 void Bullet::shoot(sf::Vector2f coord)
@@ -73,10 +75,6 @@ void Bullet::updateInput(sf::Vector2f coord)
         {
             this->fireRateCount += 1.0;
         }
-    }
-    else
-    {
-        //this->keyHeld = false;
     }
 }
 

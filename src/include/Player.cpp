@@ -1,100 +1,104 @@
 #include "Player.h"
+//Private functions
 
-void Player::initVariables(){
-    this->movementSpeed = 5.f;
-    
-    this->attackCooldownMax = 10.f;
-    this->attackCooldown = this->attackCooldownMax;
-
-    this->hpMax = 100;
-    this->hp = this->hpMax;
+void Player::initVariables()
+{
+    this->movementSpeed = 6.f;
 }
 
-void Player::initTexture(){
-    //Load a texture from file
-    if(!this->playerTexture.loadFromFile("Textures/nave.png")){//direccion de archivo donde esta la imagen de la nave
-        std::cout<<"Error::Player::Inittexture::could not load texture file."<<std::endl;
+void Player::initTexture()
+{
+    if(!this->playerTexture.loadFromFile("Textures/nave.png"))
+    {
+        std::cout << "ERROR::PLAYER::INITTEXTURE:: Failed to load texture!" << '\n' ;
     }
-
 }
 
-void Player::initSprite(){
-    this->sprite.setTexture(this->playerTexture);
-
-    //Cambiar el tamaño
-    this->sprite.scale(0.2f, 0.2f);  
+void Player::initShape()
+{
+    this->shape.setTexture(&this->playerTexture);
+    this->shape.setSize(sf::Vector2f(50.f, 50.f));
+    this->shape.setPosition(375.f, 500.f);
 }
 
- Player:: Player(){
+//Constructor
+Player::Player(float x, float y)
+{
     this->initVariables();
     this->initTexture();
-    this->initSprite();
+    this->initShape();
 }
 
- Player::~Player(){
+//Destructor
+Player::~Player()
+{
 
 }
 
-const sf::Vector2f & Player::getPos() const{
-    return this->sprite.getPosition();
-}
-
-const sf::FloatRect Player::getBounds() const{
-    return this->sprite.getGlobalBounds();
-}
-
-const int & Player::getHp() const{
-    return this->hp;
-}
-
-const int & Player::getHpMax() const{
-    return this->hpMax;
-}
-
-void Player::setPosition(const sf::Vector2f pos){
-    this->sprite.setPosition(pos);
-}
-
-void Player::setPosition(const float x, const float y){
-    this->sprite.setPosition(x,y);
-}
-
-void Player::setHp(const int hp){
-    this->hp= hp;
-}
-
-void Player::loseHp(const int value){
-    this->hp -=value;
-    if(this->hp < 0){
-        this->hp = 0 ;
+//Funciones publicas
+void Player::updateInput()
+{
+    //Entrada del teclado
+    //Hacia la izquierda
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+    {
+        this->shape.move(-this->movementSpeed, 0.f);
+    }
+    //Hacia la derecha
+    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+    {
+        this->shape.move(this->movementSpeed, 0.f);  
+    }
+    //Hacia arriba
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+    {
+        this->shape.move(0.f, -this->movementSpeed);  
+    }
+    //Hacia abajo
+    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+    {
+        this->shape.move(0.f, this->movementSpeed);  
     }
 }
 
-//Functions
-void Player::move(const float dirX, const float dirY){
-    this->sprite.move(this->movementSpeed * dirX, this->movementSpeed * dirY);
-}
+void Player::updateWindowBoundsCollision(const sf::RenderTarget * target)
+{
+    //Limite izquierdo
 
-const bool Player::canAttack(){
-    if(this->attackCooldown >= this->attackCooldownMax){
-        this->attackCooldown = 0.f;
-        return true;
+    if (this->shape.getGlobalBounds().left <= 0.f)
+    {
+        this->shape.setPosition(0.f, this->shape.getGlobalBounds().top);
     }
-    return false;
-}
-
-void Player::updateAttack(){
-    if(this->attackCooldown < this->attackCooldownMax){
-        this->attackCooldown += 0.5f;
+    //Limite derecho
+    else if(this->shape.getGlobalBounds().left + this->shape.getGlobalBounds().width >= target->getSize().x)
+    {
+        this->shape.setPosition(target->getSize().x - this->shape.getGlobalBounds().width, this->shape.getGlobalBounds().top);
     }
+    //Limite superior
+    if (this->shape.getGlobalBounds().top <= 0.f)
+    {
+        this->shape.setPosition(this->shape.getGlobalBounds().left, 0.f);
+    }
+    //Limite inferior
+    else if(this->shape.getGlobalBounds().top + this->shape.getGlobalBounds().height >= target->getSize().y)
+    {
+        this->shape.setPosition(this->shape.getGlobalBounds().left, target->getSize().y - this->shape.getGlobalBounds().height);
+    }
+
 }
 
-void Player::update(){
-    this->updateAttack();
+void Player::updateBullet()
+{
+    bullet.update(this->shape.getPosition());
 }
-
-//Representa nuestro sprite
-void Player::render(sf::RenderTarget& target){
-    target.draw(this->sprite);
-
+void Player::update(const sf::RenderTarget* target)
+{
+    this->updateInput();
+    this->updateWindowBoundsCollision(target);
+    this->updateBullet();
+}
+void Player::render(sf::RenderTarget* target)
+{
+    target->draw(this->shape);
+    this->bullet.render(target);
 }

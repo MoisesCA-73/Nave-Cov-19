@@ -9,49 +9,42 @@
 #include <SFML/System.hpp>
 #include <SFML/Network.hpp>
 
-class Player{
-    private:
-        sf::Sprite sprite;
-        sf::Texture playerTexture;
+#include "Bullet.h"
 
-        float movementSpeed;
+class Player
+{
+private:
+    sf::RectangleShape shape;
 
-        float attackCooldown;
-        float attackCooldownMax;
+    float movementSpeed;
 
-        int hp;
-        int hpMax;
+    sf::Texture playerTexture;
 
-        //Funciones privadas
-        void initVariables();
-        void initTexture();
-        void initSprite();
-    public:
-        Player();
-        virtual ~Player();
+    Bullet bullet;
 
-        //Accesor
-        const sf::Vector2f& getPos() const;
-        const sf::FloatRect getBounds() const;
-        const int& getHp() const;
-        const int& getHpMax() const;
+    //Funciones privadas
+    void initVariables();
+    void initTexture();
+    void initShape();
+public:
+    Player(float x = 0.f, float y = 0.f);
+    virtual ~Player();
 
-        //Modificadores
-        void setPosition(const sf::Vector2f pos);
-        void setPosition(const float x, const float y);
-        void setHp(const int hp);
-        void loseHp(const int value);
+    //Evalua las teclas presionadas
+    void updateInput();
 
-        //Funciones
-        void move(const float dirX , const float dirY);
-        const bool canAttack();
+    //Actualiza el choque con los limites de la ventana
+    void updateWindowBoundsCollision(const sf::RenderTarget* target);
 
-        void updateAttack();
-        void update();
-        void render(sf::RenderTarget& target);
+    void updateBullet();
 
-        
+    //Actualiza su posicion en la ventana
+    void update(const sf::RenderTarget* target);
+
+    //Se dibuja
+    void render(sf::RenderTarget* target);
+
+    
 };
-
 
 #endif  //PLAYER_H

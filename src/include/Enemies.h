@@ -5,7 +5,7 @@
 
 #ifndef ENEMIES_H
 #define ENEMIES_H
-
+#include "Player.h"
 #include "VirusAlpha.h"
 #include "VirusBeta.h"
 #include "VirusEpsilon.h"
@@ -24,7 +24,7 @@ private:
     float enemySpawnTimerMax;
     int maxEnemies;
     std::unique_ptr<Virus> enemy;
-    std::vector <std::unique_ptr<Virus> > enemies;
+    std::vector<std::unique_ptr<Virus>> enemies;
     //Private functions
     void initVariables();
     void initEnemies();
@@ -32,7 +32,7 @@ private:
 public:
     Enemies();
     void spawnEnemy(sf::RenderTarget *target);
-    void update(sf::RenderTarget *target);
+    void update(sf::RenderTarget *target, Player &player);
     void render(sf::RenderTarget *target);
 };
 #endif //ENEMIES_H

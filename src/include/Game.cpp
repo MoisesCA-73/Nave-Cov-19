@@ -9,8 +9,8 @@ void Game::initVariables()
     //Game Logic
 
     this->endGame = false;
-    this->points = 0;
-    this->health = 30;
+    //this->points = 0;
+    //this->health = 30;
     this->enemySpawnTimerMax = 20.f;
     this->enemySpawnTimer = this->enemySpawnTimerMax;
     this->maxEnemies = 5;
@@ -167,8 +167,8 @@ void Game::updateText()
 {
     std::stringstream ss;
 
-    ss << "Points: " << this->points << "\n"
-       << "Health: " << this->health << "\n";
+    ss << "Points: " << this->player.getPoints() << "\n"
+       << "Health: " << this->player.getHp() << "\n";
 
     this->uiText.setString(ss.str());
 }
@@ -278,9 +278,9 @@ void Game::update()
             this->updateText();
 
             this->player.update(this->window);
-            this->virus.update(this->window);
+            this->virus.update(this->window, this->player);
         }
-        if (this->health <= 0)
+        if (this->player.getHp() <= 0)
         {
             this->endGame = true;
         }

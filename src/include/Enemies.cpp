@@ -38,7 +38,7 @@ void Enemies::spawnEnemy(sf::RenderTarget *target)
     this->enemies.push_back(std::move(this->enemy));
 }
 
-void Enemies::update(sf::RenderTarget *target)
+void Enemies::update(sf::RenderTarget *target, Player &player)
 {
     if (this->enemies.size() < this->maxEnemies)
     {
@@ -58,7 +58,7 @@ void Enemies::update(sf::RenderTarget *target)
         if (this->enemies[i]->getPos().y > target->getSize().y)
         {
             this->enemies.erase(this->enemies.begin() + i);
-            i--;
+            player.getHp() -= 1;
         }
     }
 }

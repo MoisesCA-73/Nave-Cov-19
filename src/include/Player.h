@@ -18,23 +18,24 @@ private:
 
     float movementSpeed;
     int hp;
-
+    int points;
     sf::Texture playerTexture;
 
     Bullet bullet;
-
 
     //Funciones privadas
     void initVariables();
     void initTexture();
     void initShape();
+
 public:
     Player(float x = 0.f, float y = 0.f);
-    virtual ~Player();
+    ~Player();
 
     //Accessors
     Bullet getBullet() const;
-    const int& getHp() const;
+    int getPoints();
+    int &getHp();
 
     //Recibe daño
     void Danio(const int danio);
@@ -44,17 +45,15 @@ public:
     void updateInput();
 
     //Actualiza el choque con los limites de la ventana
-    void updateWindowBoundsCollision(const sf::RenderTarget* target);
+    void updateWindowBoundsCollision(const sf::RenderTarget *target);
 
     void updateBullet();
 
     //Actualiza su posicion en la ventana
-    void update(const sf::RenderTarget* target);
+    void update(const sf::RenderTarget *target);
 
     //Se dibuja
-    void render(sf::RenderTarget* target);
-
-    
+    void render(sf::RenderTarget *target);
 };
 
-#endif  //PLAYER_H
+#endif //PLAYER_H

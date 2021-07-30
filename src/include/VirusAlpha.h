@@ -4,19 +4,19 @@
     Se le cambiara el nombre cuando decidan un nombre para los virus, si le ponemos los nombres de las variantes? xd
     - ah claro jsjs c:
 */
-#ifndef VIRUSA_H
-#define VIRUSA_H
+#ifndef VIRUS_ALPHA_H
+#define VIRUS_ALPHA_H
 
 #include "Virus.h"
 
-class VirusA : public Virus
+class VirusAlpha : public Virus
 {
 private:
     void initVariables() override;
     void initTexture() override;
     void initShape() override;
 public:
-    VirusA() : Virus(){};
+    VirusAlpha();
 };
 
-#endif  //VIRUSA_H
+#endif  //VIRUS_ALPHA_H

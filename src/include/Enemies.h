@@ -6,8 +6,15 @@
 #ifndef ENEMIES_H
 #define ENEMIES_H
 
-#include "Virus.h"
+#include "VirusAlpha.h"
+#include "VirusBeta.h"
+#include "VirusEpsilon.h"
+#include "VirusGamma.h"
+#include "VirusDelta.h"
+
 #include <vector>
+#include <ctime>
+
 class Enemies
 {
 private:
@@ -16,10 +23,11 @@ private:
     float enemySpawnTimer;
     float enemySpawnTimerMax;
     int maxEnemies;
-    Virus enemy;
-    std::vector<Virus> enemies;
+    std::unique_ptr<Virus> enemy;
+    std::vector <std::unique_ptr<Virus> > enemies;
     //Private functions
     void initVariables();
+    void initEnemies();
 
 public:
     Enemies();

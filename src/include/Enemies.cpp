@@ -11,8 +11,31 @@ Enemies::Enemies()
 }
 void Enemies::spawnEnemy(sf::RenderTarget *target)
 {
-    this->enemy.getShape().setPosition(static_cast<float>(rand() % static_cast<int>(target->getSize().x - this->enemy.getShape().getSize().x)), -100.f);
-    this->enemies.push_back(this->enemy);
+    //Randomize enemy type
+    int type = rand() % 5;
+
+    switch (type)
+    {
+    case 0:
+        this->enemy = std::unique_ptr<VirusAlpha>(new VirusAlpha());
+        break;
+    case 1:
+        this->enemy = std::unique_ptr<VirusBeta>(new VirusBeta());
+        break;
+    case 2:
+        this->enemy = std::unique_ptr<VirusEpsilon>(new VirusEpsilon());
+        break;
+    case 3:
+        this->enemy = std::unique_ptr<VirusGamma>(new VirusGamma());
+        break;
+    case 4:
+        this->enemy = std::unique_ptr<VirusDelta>(new VirusDelta());
+        break;
+    default:
+        this->enemy = std::unique_ptr<VirusDelta>(new VirusDelta());
+    }
+    this->enemy->getShape().setPosition(static_cast<float>(rand() % static_cast<int>(target->getSize().x - this->enemy->getShape().getSize().x)), -100.f);
+    this->enemies.push_back(std::move(this->enemy));
 }
 
 void Enemies::update(sf::RenderTarget *target)
@@ -31,10 +54,11 @@ void Enemies::update(sf::RenderTarget *target)
     }
     for (int i = 0; i < this->enemies.size(); i++)
     {
-        this->enemies[i].getShape().move(0.f, 5.f);
-        if (this->enemies[i].getPos().y > target->getSize().y)
+        this->enemies[i]->getShape().move(0.f, 5.f);
+        if (this->enemies[i]->getPos().y > target->getSize().y)
         {
             this->enemies.erase(this->enemies.begin() + i);
+            i--;
         }
     }
 }
@@ -43,6 +67,6 @@ void Enemies::render(sf::RenderTarget *target)
 {
     for (auto &e : this->enemies)
     {
-        target->draw(e.getShape());
+        target->draw(e->getShape());
     }
 }

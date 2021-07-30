@@ -9,12 +9,11 @@ protected:
     int health;
     float points;
     //Private Functions
-    void initVariables();
-    void initTexture();
-    void initShape();
+    virtual void initVariables();
+    virtual void initTexture();
+    virtual void initShape();
 
 public:
-    Virus();
     ~Virus();
 
     void destroy();

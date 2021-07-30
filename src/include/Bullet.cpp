@@ -12,9 +12,9 @@ void Bullet::initVariables()
 
 void Bullet::initTexture()
 {
-    if(!this->bulletTexture.loadFromFile("Textures/bullet-temporary.png"))
+    if (!this->bulletTexture.loadFromFile("Textures/bullet-temporary.png"))
     {
-        std::cout << "ERROR::BULLET::INITTEXTURE:: Failed to load texture!" << '\n' ;
+        std::cout << "ERROR::BULLET::INITTEXTURE:: Failed to load texture!" << '\n';
     }
 }
 
@@ -26,7 +26,6 @@ Bullet::Bullet()
 
 Bullet::~Bullet()
 {
-
 }
 
 float Bullet::getFireRate() const
@@ -39,17 +38,11 @@ void Bullet::setFireRate(float fireRate)
     this->fireRate = this->fireRate;
 }
 
-
-
 void Bullet::shoot(sf::Vector2f coord)
 {
-    
+
     this->shape.setPosition(coord.x + 12.5, coord.y);
     this->bullets.push_back(this->shape);
-}
-
-void Bullet::dealDamage(Virus enemy)
-{
 }
 
 void Bullet::updateBullets()
@@ -72,8 +65,8 @@ void Bullet::updateInput(sf::Vector2f coord)
     {
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::K))
         {
-                this->shoot(coord);
-                this->fireRateCount = 0.f;
+            this->shoot(coord);
+            this->fireRateCount = 0.f;
         }
     }
     else
@@ -91,9 +84,9 @@ void Bullet::update(sf::Vector2f coord)
     this->updateBullets();
 }
 
-void Bullet::render(sf::RenderTarget* target)
+void Bullet::render(sf::RenderTarget *target)
 {
-    for (auto& e : bullets)
+    for (auto &e : bullets)
     {
         target->draw(e);
     }

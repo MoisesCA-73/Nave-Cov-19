@@ -37,6 +37,7 @@ private:
     //Private functions
     void initVariables();
     void initTexture();
+
 public:
     //Constructors
     Bullet();
@@ -45,19 +46,18 @@ public:
 
     //Accessors
     float getFireRate() const;
-    
+
     //Mutators
     void setFireRate(float fireRate);
 
-
     void spawnBullet(sf::Vector2f coord);
     void shoot(sf::Vector2f coord);
-    void dealDamage(Virus enemy);
+    //void dealDamage(Virus enemy);
     //Functions
     void updateBullets();
     void updateInput(sf::Vector2f coord);
     void update(sf::Vector2f coord);
-    void render(sf::RenderTarget* target);
+    void render(sf::RenderTarget *target);
 };
 
-#endif  //BULLET_H
+#endif //BULLET_H

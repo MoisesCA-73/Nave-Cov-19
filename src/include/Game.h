@@ -19,8 +19,7 @@
 
 #include "Player.h"
 #include "Menu.h"
-#include "Entidad.h"
-//#include "Virus.h"
+#include "Enemies.h"
 class Game
 {
 private:
@@ -56,8 +55,7 @@ private:
     Player player;
 
     //Game objects
-    Virus v;
-
+    Enemies virus;
     //Private functions
     void initVariables();
     void initWindow();

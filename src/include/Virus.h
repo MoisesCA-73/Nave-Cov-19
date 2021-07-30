@@ -8,7 +8,7 @@ class Virus : public Entidad
 protected:
     int health;
     float points;
-
+    //Private Functions
     void initVariables();
     void initTexture();
     void initShape();
@@ -18,10 +18,8 @@ public:
     ~Virus();
 
     void destroy();
-    void spawn(sf::RenderTarget *target);
-    void update(sf::RenderTarget *target);
-    void updateInput();
-    void render(sf::RenderTarget *target);
+    sf::RectangleShape &getShape();
+    const sf::Vector2f &getPos();
 };
 
 #endif //VIRUS_H

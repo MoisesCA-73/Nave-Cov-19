@@ -277,9 +277,8 @@ void Game::update()
 
             this->updateText();
 
-            //this->updateEnemies();
             this->player.update(this->window);
-            this->v.update(this->window);
+            this->virus.update(this->window);
         }
         if (this->health <= 0)
         {
@@ -326,7 +325,7 @@ void Game::render()
         this->renderText(*this->window);
 
         this->player.render(this->window);
-        this->v.render(this->window);
+        this->virus.render(this->window);
     }
 
     this->window->display();

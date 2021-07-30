@@ -19,7 +19,8 @@
 
 #include "Player.h"
 #include "Menu.h"
-#include "Virus.h"
+#include "Entidad.h"
+//#include "Virus.h"
 class Game
 {
 private:
@@ -56,15 +57,12 @@ private:
 
     //Game objects
     Virus v;
-    std::vector<sf::RectangleShape> enemies;
-    sf::RectangleShape enemy;
 
     //Private functions
     void initVariables();
     void initWindow();
     void initFonts();
     void initText();
-    void initEnemies();
 
 public:
     //Constructors / Destructors
@@ -76,18 +74,18 @@ public:
     const bool getEndGame() const;
 
     //Functions
-    void spawnEnemy();
+    //void spawnEnemy();
 
     void pollEvents();
     void updateMousePosition();
     void updateText();
-    void updateEnemies();
+    //void updateEnemies();
     //void updateMenu();
 
     void update();
 
     void renderText(sf::RenderTarget &target);
-    void renderEnemies(sf::RenderTarget &target);
+    //void renderEnemies(sf::RenderTarget &target);
     void render();
 };
 

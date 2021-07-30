@@ -6,7 +6,7 @@
 class Virus : public Entidad
 {
 protected:
-    int health; 
+    int health;
     float points;
 
     void initVariables();
@@ -18,7 +18,8 @@ public:
     ~Virus();
 
     void destroy();
-    void update();
+    void spawn(sf::RenderTarget *target);
+    void update(sf::RenderTarget *target);
     void updateInput();
     void render(sf::RenderTarget *target);
 };

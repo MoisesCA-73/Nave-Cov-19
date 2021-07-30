@@ -12,14 +12,18 @@
 #include <SFML/System.hpp>
 #include <SFML/Network.hpp>
 #include <iostream>
+#include <vector>
+#include <ctime>
 class Entidad
 {
 protected:
-    int health;
     float movementSpeed;
+    float entitySpawnTimer;
+    float entitySpawnTimerMax;
+    int maxEntities;
     sf::Texture texture;
     sf::RectangleShape shape;
-
+    std::vector<sf::RectangleShape> entities;
     //Protected functions
     virtual void initVariables() = 0;
     virtual void initTexture() = 0;
@@ -27,7 +31,8 @@ protected:
 
 public:
     //virtual ~Entidad() = 0;
-    virtual void update() = 0;
+    virtual void spawn(sf::RenderTarget *target) = 0;
+    virtual void update(sf::RenderTarget *target) = 0;
     virtual void updateInput() = 0;
     virtual void render(sf::RenderTarget *target) = 0;
 };

@@ -32,6 +32,10 @@ private:
     Menu pauseMenu;
     Menu deathMenu;
 
+    //Background
+    sf::Texture backgroundTexture;
+    sf::Sprite background;
+    
     //Mouse  positions
     sf::Vector2i mousePosWindow;
     sf::Vector2f mousePosView;

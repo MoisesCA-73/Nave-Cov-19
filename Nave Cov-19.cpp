@@ -13,7 +13,6 @@ int main()
 
     //Initialize game engine
     Game game;
-
     
     std::cout << "Game created succesfully" << '\n';
 

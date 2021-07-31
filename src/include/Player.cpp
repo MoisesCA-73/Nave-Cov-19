@@ -3,7 +3,7 @@
 
 void Player::initVariables()
 {
-    this->movementSpeed = 6.f;
+    this->movementSpeed = 10.f;
     this->hp = 30;
     this->points = 0;
 }

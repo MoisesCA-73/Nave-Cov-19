@@ -28,6 +28,11 @@ void Game::initWindow()
 
 void Game::initFonts()
 {
+    if (!this->backgroundTexture.loadFromFile("Textures/background.jpg"))
+    {
+        std::cout << "ERROR::GAME::INITFONTS:: Failed to load font!"
+                  << "\n";
+    }
     if (!this->font.loadFromFile("Fonts/Dosis-Light.ttf"))
     {
         std::cout << "ERROR::GAME::INITFONTS:: Failed to load font!"
@@ -41,7 +46,12 @@ void Game::initText()
     this->uiText.setCharacterSize(32);
     this->uiText.setFillColor(sf::Color::White);
     this->uiText.setString("NONE");
+
+    this->background.setTexture(backgroundTexture);
+    this->background.setScale((float)this->window->getSize().x / backgroundTexture.getSize().x ,(float)this->window->getSize().y / backgroundTexture.getSize().y);  
+
 }
+
 
 // void Game::initEnemies()
 // {
@@ -321,12 +331,12 @@ void Game::render()
 
         //Draw game objects
         //this->renderEnemies(*this->window);
-
+        this->window->draw(background);
         this->renderText(*this->window);
 
         this->player.render(this->window);
         this->virus.render(this->window);
     }
-
+    
     this->window->display();
 }

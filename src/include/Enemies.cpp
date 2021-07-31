@@ -63,19 +63,27 @@ void Enemies::update(sf::RenderTarget *target, Player &player)
             player.getHp() -= 1;
         }
     }
-    for (int i = 0; i < this->enemies.size(); i++)
+    unsigned counter = 0;
+    for (int i = 0; i < this->enemies.size(); ++i)
     {
-        //bool deleted {false};
-        for (int j = 0; j < player.getBullet().getBullets().size(); j++)
+        bool deleted = false;
+        for (int j = 0; j < player.getBullet().getBullets().size() && deleted== false; j++)
         {
             //When there is contact between a bullet and an enemy
             if(this->enemies[i]->getShape().getGlobalBounds().contains(player.getBullet().getBullets()[j].getPosition()))
             {
-                //this->enemies[i]->setHealth(this->enemies[i]->getHealth() - player.getBullet().getDamage());
+                this->enemies[i]->setHealth(this->enemies[i]->getHealth() - player.getBullet().getDamage());
                 //player.getBullet().getBullets().erase(player.getBullet().getBullets().begin() + j);
                 //j--;
+                deleted= true;
             }
         }
+        if(this->enemies[i]->getShape().getGlobalBounds().contains(player.getPlayer().getPosition())){
+            player.Danio(1);//solo quita 1 de vida por el momento cuando choca con un virus
+            //delete this->enemies.at(counter);
+            this->enemies.erase(this->enemies.begin() + counter);
+        }
+        ++counter;
     }
     
     for (int i = 0; i < this->enemies.size(); i++)

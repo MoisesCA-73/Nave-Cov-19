@@ -17,8 +17,16 @@ public:
     ~Virus();
 
     void destroy();
+    //Accessors
     sf::RectangleShape &getShape();
     const sf::Vector2f &getPos();
+    int getHealth() const;
+    float getPoints() const;
+
+    //Mutators
+    void setHealth(int health);
+    void setPoints(float points);
+
 };
 
 #endif //VIRUS_H

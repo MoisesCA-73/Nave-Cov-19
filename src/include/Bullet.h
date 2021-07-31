@@ -17,6 +17,8 @@
 
 #include "Virus.h"
 
+class Player;
+
 class Bullet
 {
 private:
@@ -38,6 +40,9 @@ private:
     void initVariables();
     void initTexture();
 
+    //Friend class
+    friend class Player;
+
 public:
     //Constructors
     Bullet();
@@ -46,6 +51,8 @@ public:
 
     //Accessors
     float getFireRate() const;
+    std::vector<sf::RectangleShape> getBullets() const;
+    int getDamage() const;
 
     //Mutators
     void setFireRate(float fireRate);

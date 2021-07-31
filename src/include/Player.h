@@ -21,6 +21,7 @@ private:
     int points;
     sf::Texture playerTexture;
 
+    //Bullets that are shot
     Bullet bullet;
 
     //Funciones privadas
@@ -36,6 +37,9 @@ public:
     Bullet getBullet() const;
     int getPoints();
     int &getHp();
+
+    //Setters
+    void setPoints(int points);
 
     //Recibe daño
     void Danio(const int danio);

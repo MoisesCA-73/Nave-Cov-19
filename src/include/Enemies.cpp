@@ -1,4 +1,5 @@
 #include "Enemies.h"
+
 void Enemies::initVariables()
 {
     this->maxEnemies = 5.f;
@@ -58,7 +59,32 @@ void Enemies::update(sf::RenderTarget *target, Player &player)
         if (this->enemies[i]->getPos().y > target->getSize().y)
         {
             this->enemies.erase(this->enemies.begin() + i);
+            i--;
             player.getHp() -= 1;
+        }
+    }
+    for (int i = 0; i < this->enemies.size(); i++)
+    {
+        //bool deleted {false};
+        for (int j = 0; j < player.getBullet().getBullets().size(); j++)
+        {
+            //When there is contact between a bullet and an enemy
+            if(this->enemies[i]->getShape().getGlobalBounds().contains(player.getBullet().getBullets()[j].getPosition()))
+            {
+                //this->enemies[i]->setHealth(this->enemies[i]->getHealth() - player.getBullet().getDamage());
+                //player.getBullet().getBullets().erase(player.getBullet().getBullets().begin() + j);
+                //j--;
+            }
+        }
+    }
+    
+    for (int i = 0; i < this->enemies.size(); i++)
+    {
+        if (this->enemies[i]->getHealth() <= 0)
+        {
+            this->enemies.erase(this->enemies.begin() + i);
+            i--;
+            player.setPoints(player.getPoints() + 1);
         }
     }
 }

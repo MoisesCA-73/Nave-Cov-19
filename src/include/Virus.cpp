@@ -46,3 +46,22 @@ const sf::Vector2f &Virus::getPos()
 {
     return this->shape.getPosition();
 }
+
+int Virus::getHealth() const
+{
+    return this->health;
+}
+float Virus::getPoints() const
+{
+    return this->points;
+}
+
+void Virus::setHealth(int health)
+{
+    this->health = health;
+}
+
+void Virus::setPoints(float points)
+{
+    this->points = points;
+}

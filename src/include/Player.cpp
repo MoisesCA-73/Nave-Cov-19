@@ -43,6 +43,7 @@ Bullet Player::getBullet() const
     return this->bullet;
 }
 
+
 int Player::getPoints()
 {
     return this->points;
@@ -53,6 +54,10 @@ int &Player::getHp()
     return this->hp;
 }
 
+void Player::setPoints(int points)
+{
+    this->points = points;
+}
 void Player::Danio(const int danio)
 {
     if (this->hp > 0)

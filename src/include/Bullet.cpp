@@ -8,6 +8,7 @@ void Bullet::initVariables()
     this->shape.setSize(this->size);
     this->fireRate = 10.f;
     this->fireRateCount = this->fireRate;
+    this->damage = 30;
 }
 
 void Bullet::initTexture()
@@ -32,7 +33,15 @@ float Bullet::getFireRate() const
 {
     return this->fireRate;
 }
+int Bullet::getDamage() const
+{
+    return this->damage;
+}
 
+std::vector<sf::RectangleShape> Bullet::getBullets() const
+{
+    return this->bullets;
+}
 void Bullet::setFireRate(float fireRate)
 {
     this->fireRate = this->fireRate;

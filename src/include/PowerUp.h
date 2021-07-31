@@ -11,8 +11,8 @@ protected:
     virtual void initShape();
     virtual void initTexture();
 public:
-    PowerUp(float pos_x, float pos_y);
-    virtual ~PowerUp();
+    
+    //virtual ~PowerUp();
 
     
     void update();

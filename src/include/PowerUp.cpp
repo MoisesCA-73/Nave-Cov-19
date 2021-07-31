@@ -12,7 +12,7 @@ void PowerUp::initShape(){
     this->shape.setSize(sf::Vector2f(50.f, 50.f));
     
 }
-
+/*
 PowerUp::PowerUp(float pos_x, float pos_y){
     this->initShape();
     //this->initTexture();
@@ -23,7 +23,7 @@ PowerUp::PowerUp(float pos_x, float pos_y){
 PowerUp::~PowerUp(){
 
 }
-
+*/
 void PowerUp::update(){
 
 }

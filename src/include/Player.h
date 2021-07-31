@@ -34,12 +34,14 @@ public:
     ~Player();
 
     //Accessors
+    sf::RectangleShape getShape() const;
     Bullet getBullet() const;
     int getPoints();
     int &getHp();
 
     //Setters
     void setPoints(int points);
+    void setHP(int hp);
 
     //Recibe daño
     void Danio(const int danio);

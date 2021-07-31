@@ -10,7 +10,7 @@
 #include <SFML/Network.hpp>
 
 #include "Bullet.h"
-
+class Enemies;
 class Player
 {
 private:
@@ -28,6 +28,8 @@ private:
     void initVariables();
     void initTexture();
     void initShape();
+
+    friend class Enemies;
 
 public:
     Player(float x = 0.f, float y = 0.f);

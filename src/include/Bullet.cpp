@@ -8,7 +8,7 @@ void Bullet::initVariables()
     this->shape.setSize(this->size);
     this->fireRate = 10.f;
     this->fireRateCount = this->fireRate;
-    this->damage = 30;
+    this->damage = 50;
 }
 
 void Bullet::initTexture()

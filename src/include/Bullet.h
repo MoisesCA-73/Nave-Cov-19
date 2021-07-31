@@ -18,6 +18,7 @@
 #include "Virus.h"
 
 class Player;
+class Enemies;
 
 class Bullet
 {
@@ -42,6 +43,7 @@ private:
 
     //Friend class
     friend class Player;
+    friend class Enemies;
 
 public:
     //Constructors

@@ -78,7 +78,7 @@ void Enemies::update(sf::RenderTarget *target, Player &player)
                 deleted= true;
             }
         }
-        if(this->enemies[i]->getShape().getGlobalBounds().contains(player.getPlayer().getPosition())){
+        if(this->enemies[i]->getShape().getGlobalBounds().contains(player.getShape().getPosition())){
             player.Danio(1);//solo quita 1 de vida por el momento cuando choca con un virus
             //delete this->enemies.at(counter);
             this->enemies.erase(this->enemies.begin() + counter);

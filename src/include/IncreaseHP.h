@@ -1,14 +1,14 @@
-#ifndef DOUBLE_FIRE_RATE_H
-#define DOUBLE_FIRE_RATE_H
+#ifndef INCREASE_HP_H
+#define INCREASE_HP_H
 
 #include "PowerUp.h"
 
-class DoubleFireRate : public PowerUp
+class IncreaseHP : public PowerUp
 {
 private:
     virtual void initTexture() override;
 public:
-    DoubleFireRate();
+    IncreaseHP();
     virtual void makeChange(Player player) override;
 
 };

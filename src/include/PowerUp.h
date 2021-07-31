@@ -7,15 +7,12 @@
 class PowerUp : public Entidad
 {
 protected:
-    //sf::Texture1
-    //sf::Texture2
-    //...
     virtual void initVariables();
     virtual void initShape();
     virtual void initTexture();
 public:
-    PowerUp(float pos_x, float pos_y);
-    virtual ~PowerUp();
+    
+    //virtual ~PowerUp();
 
     
     void update();

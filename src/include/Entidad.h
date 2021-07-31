@@ -31,5 +31,7 @@ protected:
 
 public:
     //virtual ~Entidad() = 0;
+    sf::RectangleShape &getShape();
+    const sf::Vector2f &getPos();
 };
 #endif //ENTIDAD_H

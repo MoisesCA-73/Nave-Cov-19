@@ -37,7 +37,10 @@ Player::Player(float x, float y)
 Player::~Player()
 {
 }
-
+sf::RectangleShape Player::getShape() const
+{
+    return this->shape;
+}
 Bullet Player::getBullet() const
 {
     return this->bullet;
@@ -57,6 +60,10 @@ int &Player::getHp()
 void Player::setPoints(int points)
 {
     this->points = points;
+}
+void Player::setHP(int hp)
+{
+    this->hp = hp;
 }
 void Player::Danio(const int danio)
 {

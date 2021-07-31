@@ -23,3 +23,13 @@ Entidad::~Entidad()
 {
     
 }
+
+sf::RectangleShape &Entidad::getShape()
+{
+    return this->shape;
+}
+
+const sf::Vector2f &Entidad::getPos()
+{
+    return this->shape.getPosition();
+}

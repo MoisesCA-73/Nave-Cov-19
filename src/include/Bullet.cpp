@@ -6,7 +6,7 @@ void Bullet::initVariables()
     this->shape.setTexture(&this->bulletTexture);
     this->size = sf::Vector2f(20.f, 40.f);
     this->shape.setSize(this->size);
-    this->fireRate = 15.f;
+    this->fireRate = 10.f;
     this->fireRateCount = this->fireRate;
     this->damage = 50;
 }
@@ -19,10 +19,21 @@ void Bullet::initTexture()
     }
 }
 
+//sonido de disparo
+void Bullet::initSound()
+{
+    if (!this->buffer.loadFromFile("Sounds/disparo.wav"))
+    {
+        std::cout << "ERROR::ENEMIES::INITSOUND:: Failed to load sound!" << '\n';
+    }
+    this->sonido.setBuffer(buffer);
+}
+
 Bullet::Bullet()
 {
     this->initTexture();
     this->initVariables();
+    this->initSound();
 }
 
 Bullet::~Bullet()
@@ -76,6 +87,8 @@ void Bullet::updateInput(sf::Vector2f coord)
         {
             this->shoot(coord);
             this->fireRateCount = 0.f;
+            this->sonido.setVolume(2); //Volumen, no elevar a mas de 10 :)
+            this->sonido.play();
         }
     }
     else

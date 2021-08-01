@@ -18,9 +18,6 @@ class Entidad
 {
 protected:
     float movementSpeed;
-    //float entitySpawnTimer;
-    //float entitySpawnTimerMax;
-    //int maxEntities;
     sf::Texture texture;
     sf::RectangleShape shape;
     std::vector<sf::RectangleShape> entities;
@@ -31,7 +28,8 @@ protected:
 
 public:
     //virtual ~Entidad() = 0;
-    sf::RectangleShape &getShape();
-    const sf::Vector2f &getPos();
+    virtual sf::RectangleShape &getShape() = 0;
+    virtual const sf::Vector2f &getPos() = 0;
+    virtual float getMovementS() = 0;
 };
 #endif //ENTIDAD_H

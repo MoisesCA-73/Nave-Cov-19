@@ -28,6 +28,9 @@ private:
     sf::Texture bulletTexture;
     sf::Vector2f size;
     sf::Vector2f direction;
+    //Sonido
+    sf::SoundBuffer buffer;
+    sf::Sound sonido;
 
     //Bullets moving
     std::vector<sf::RectangleShape> bullets;
@@ -40,6 +43,7 @@ private:
     //Private functions
     void initVariables();
     void initTexture();
+    void initSound();
 
     //Friend class
     friend class Player;

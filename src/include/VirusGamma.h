@@ -13,6 +13,7 @@ private:
 public:
     VirusGamma();
     int getPoints();
+    float getMovementS();
 };
 
 #endif //VIRUS_GAMMA_H

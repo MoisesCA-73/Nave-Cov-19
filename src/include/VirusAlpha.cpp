@@ -2,6 +2,7 @@
 
 void VirusAlpha::initVariables()
 {
+    this->movementSpeed = 3.f;
     this->health = 100;
     this->points = 1;
 }
@@ -15,7 +16,7 @@ void VirusAlpha::initTexture()
 void VirusAlpha::initShape()
 {
     this->shape.setTexture(&this->texture);
-    this->shape.setSize(sf::Vector2f(20.f, 20.f));
+    this->shape.setSize(sf::Vector2f(40.f, 40.f));
 }
 
 VirusAlpha::VirusAlpha()
@@ -27,4 +28,8 @@ VirusAlpha::VirusAlpha()
 int VirusAlpha::getPoints() const
 {
     return this->points;
+}
+float VirusAlpha::getMovementS()
+{
+    return this->movementSpeed;
 }

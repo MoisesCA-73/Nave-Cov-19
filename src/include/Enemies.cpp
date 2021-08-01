@@ -6,9 +6,21 @@ void Enemies::initVariables()
     this->enemySpawnTimerMax = 20.f;
     this->enemySpawnTimer = this->enemySpawnTimerMax;
 }
+
+//sonido de choque bala y virus
+void Enemies::initSound()
+{
+    if (!this->buffer.loadFromFile("Sounds/choque.wav"))
+    {
+        std::cout << "ERROR::ENEMIES::INITSOUND:: Failed to load sound!" << '\n';
+    }
+    this->sonido.setBuffer(buffer);
+}
+
 Enemies::Enemies()
 {
     this->initVariables();
+    this->initSound();
 }
 void Enemies::spawnEnemy(sf::RenderTarget *target)
 {
@@ -55,7 +67,7 @@ void Enemies::update(sf::RenderTarget *target, Player &player)
     }
     for (int i = 0; i < this->enemies.size(); i++)
     {
-        this->enemies[i]->getShape().move(0.f, 5.f);
+        this->enemies[i]->getShape().move(0.f, 1.f * this->enemies[i]->getMovementS());
         if (this->enemies[i]->getPos().y > target->getSize().y)
         {
             this->enemies.erase(this->enemies.begin() + i);
@@ -89,6 +101,8 @@ void Enemies::update(sf::RenderTarget *target, Player &player)
                     player.setPoints(player.getPoints() + this->enemies[i]->getPoints());
                     this->enemies.erase(this->enemies.begin() + i);
                     i--;
+                    this->sonido.setVolume(3);//Volumen, no elevar a mas de 10 :)
+                    this->sonido.play();
                     break;
                 }
             }

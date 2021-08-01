@@ -13,6 +13,7 @@ private:
 public:
     VirusEpsilon();
     int getPoints();
+    float getMovementS();
 };
 
 #endif //VIRUS_EPSILON_H

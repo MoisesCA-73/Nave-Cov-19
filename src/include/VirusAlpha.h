@@ -19,6 +19,7 @@ private:
 public:
     VirusAlpha();
     int getPoints() const;
+    float getMovementS();
 };
 
 #endif //VIRUS_ALPHA_H

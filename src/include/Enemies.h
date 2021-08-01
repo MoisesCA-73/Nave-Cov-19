@@ -23,6 +23,10 @@ private:
     float enemySpawnTimer;
     float enemySpawnTimerMax;
     int maxEnemies;
+    //Sonido
+    sf::SoundBuffer buffer;
+    sf::Sound sonido;
+    
     std::unique_ptr<Virus> enemy;
     std::vector<std::unique_ptr<Virus>> enemies;
     //Private functions

@@ -32,6 +32,7 @@ private:
     //Private functions
     void initVariables();
     void initEnemies();
+    void initSound();
 
 public:
     Enemies();

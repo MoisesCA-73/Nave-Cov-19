@@ -10,7 +10,7 @@ void Player::initVariables()
 
 void Player::initTexture()
 {
-    if (!this->playerTexture.loadFromFile("Textures/nave.png"))
+    if (!this->playerTexture.loadFromFile("Textures/nave-idea.png"))
     {
         std::cout << "ERROR::PLAYER::INITTEXTURE:: Failed to load texture!" << '\n';
     }

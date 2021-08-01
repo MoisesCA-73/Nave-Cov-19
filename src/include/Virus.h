@@ -7,7 +7,7 @@ class Virus : public Entidad
 {
 protected:
     int health;
-    float points;
+    int points;
     //Private Functions
     virtual void initVariables();
     virtual void initTexture();
@@ -21,12 +21,11 @@ public:
     sf::RectangleShape &getShape();
     const sf::Vector2f &getPos();
     int getHealth() const;
-    float getPoints() const;
+    int getPoints() const;
 
     //Mutators
     void setHealth(int health);
-    void setPoints(float points);
-
+    void setPoints(int points);
 };
 
 #endif //VIRUS_H

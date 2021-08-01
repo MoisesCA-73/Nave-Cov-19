@@ -66,35 +66,33 @@ void Enemies::update(sf::RenderTarget *target, Player &player)
     unsigned counter = 0;
     for (int i = 0; i < this->enemies.size(); i++)
     {
-        if(this->enemies[i]->getShape().getGlobalBounds().contains(player.getShape().getPosition())){
-            player.Danio(1);//solo quita 1 de vida por el momento cuando choca con un virus
+        if (this->enemies[i]->getShape().getGlobalBounds().contains(player.getShape().getPosition()))
+        {
+            player.Danio(1); //solo quita 1 de vida por el momento cuando choca con un virus
             //delete this->enemies.at(counter);
             this->enemies.erase(this->enemies.begin() + counter);
         }
         ++counter;
         bool deleted = false;
-        for (int j = 0; j < player.getBullet().getBullets().size() && deleted== false; j++)
+        for (int j = 0; j < player.getBullet().getBullets().size() && deleted == false; j++)
         {
             //When there is contact between a bullet and an enemy
-            if(this->enemies[i]->getShape().getGlobalBounds().contains(player.getBullet().getBullets()[j].getPosition()))
+            if (this->enemies[i]->getShape().getGlobalBounds().contains(player.getBullet().getBullets()[j].getPosition()))
             {
                 this->enemies[i]->setHealth(this->enemies[i]->getHealth() - player.getBullet().getDamage());
                 //player.getBullet().getBullets().erase(player.getBullet().getBullets().begin() + j);
                 player.bullet.bullets.erase(player.bullet.bullets.begin() + j);
                 j--;
-                deleted= true;      
-                    if (this->enemies[i]->getHealth() <= 0.f)
-                    {
-                        this->enemies.erase(this->enemies.begin() + i);
-                        i--;
-                        player.setPoints(player.getPoints() + 1);
-                        break;
-                    }
+                deleted = true;
+                if (this->enemies[i]->getHealth() <= 0.f)
+                {
+                    this->enemies.erase(this->enemies.begin() + i);
+                    i--;
+                    player.setPoints(player.getPoints() + this->enemies[i]->getPoints());
+                }
             }
-            
         }
     }
-    
 }
 
 void Enemies::render(sf::RenderTarget *target)

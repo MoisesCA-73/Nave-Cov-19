@@ -3,6 +3,7 @@
 void VirusAlpha::initVariables()
 {
     this->health = 100;
+    this->points = 1;
 }
 void VirusAlpha::initTexture()
 {
@@ -14,8 +15,7 @@ void VirusAlpha::initTexture()
 void VirusAlpha::initShape()
 {
     this->shape.setTexture(&this->texture);
-    this->shape.setSize(sf::Vector2f(50.f,50.f));
-
+    this->shape.setSize(sf::Vector2f(20.f, 20.f));
 }
 
 VirusAlpha::VirusAlpha()
@@ -23,4 +23,8 @@ VirusAlpha::VirusAlpha()
     this->initVariables();
     this->initTexture();
     this->initShape();
+}
+int VirusAlpha::getPoints() const
+{
+    return this->points;
 }

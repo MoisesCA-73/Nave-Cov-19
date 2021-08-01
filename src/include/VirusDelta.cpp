@@ -3,6 +3,7 @@
 void VirusDelta::initVariables()
 {
     this->health = 100;
+    this->points = 10;
 }
 void VirusDelta::initTexture()
 {
@@ -14,8 +15,7 @@ void VirusDelta::initTexture()
 void VirusDelta::initShape()
 {
     this->shape.setTexture(&this->texture);
-    this->shape.setSize(sf::Vector2f(20.f,20.f));
-
+    this->shape.setSize(sf::Vector2f(60.f, 60.f));
 }
 
 VirusDelta::VirusDelta()
@@ -23,4 +23,8 @@ VirusDelta::VirusDelta()
     this->initVariables();
     this->initTexture();
     this->initShape();
+}
+int VirusDelta::getPoints()
+{
+    return this->points;
 }

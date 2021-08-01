@@ -46,8 +46,7 @@ Bullet Player::getBullet() const
     return this->bullet;
 }
 
-
-int Player::getPoints()
+int Player::getPoints() const
 {
     return this->points;
 }

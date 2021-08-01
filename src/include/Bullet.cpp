@@ -6,7 +6,7 @@ void Bullet::initVariables()
     this->shape.setTexture(&this->bulletTexture);
     this->size = sf::Vector2f(20.f, 40.f);
     this->shape.setSize(this->size);
-    this->fireRate = 10.f;
+    this->fireRate = 15.f;
     this->fireRateCount = this->fireRate;
     this->damage = 50;
 }

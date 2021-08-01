@@ -3,6 +3,7 @@
 void VirusEpsilon::initVariables()
 {
     this->health = 100;
+    this->points = 15;
 }
 void VirusEpsilon::initTexture()
 {
@@ -14,8 +15,7 @@ void VirusEpsilon::initTexture()
 void VirusEpsilon::initShape()
 {
     this->shape.setTexture(&this->texture);
-    this->shape.setSize(sf::Vector2f(70.f,70.f));
-
+    this->shape.setSize(sf::Vector2f(80.f, 80.f));
 }
 
 VirusEpsilon::VirusEpsilon()
@@ -23,4 +23,8 @@ VirusEpsilon::VirusEpsilon()
     this->initVariables();
     this->initTexture();
     this->initShape();
+}
+int VirusEpsilon::getPoints()
+{
+    return this->points;
 }

@@ -9,8 +9,10 @@ protected:
     void initVariables() override;
     void initTexture() override;
     void initShape() override;
+
 public:
     VirusBeta();
+    int getPoints() const;
 };
 
-#endif  //VIRUS_BETA_H
+#endif //VIRUS_BETA_H

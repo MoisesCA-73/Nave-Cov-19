@@ -3,6 +3,7 @@
 void VirusGamma::initVariables()
 {
     this->health = 100;
+    this->points = 20;
 }
 void VirusGamma::initTexture()
 {
@@ -14,8 +15,7 @@ void VirusGamma::initTexture()
 void VirusGamma::initShape()
 {
     this->shape.setTexture(&this->texture);
-    this->shape.setSize(sf::Vector2f(50.f,50.f));
-
+    this->shape.setSize(sf::Vector2f(100.f, 100.f));
 }
 
 VirusGamma::VirusGamma()
@@ -23,4 +23,8 @@ VirusGamma::VirusGamma()
     this->initVariables();
     this->initTexture();
     this->initShape();
+}
+int VirusGamma::getPoints()
+{
+    return this->points;
 }

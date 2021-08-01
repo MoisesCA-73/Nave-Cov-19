@@ -9,8 +9,10 @@ private:
     void initVariables() override;
     void initTexture() override;
     void initShape() override;
+
 public:
     VirusGamma();
+    int getPoints();
 };
 
-#endif  //VIRUS_GAMMA_H
+#endif //VIRUS_GAMMA_H

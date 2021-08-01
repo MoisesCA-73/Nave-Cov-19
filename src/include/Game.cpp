@@ -48,23 +48,8 @@ void Game::initText()
     this->uiText.setString("NONE");
 
     this->background.setTexture(backgroundTexture);
-    this->background.setScale((float)this->window->getSize().x / backgroundTexture.getSize().x ,(float)this->window->getSize().y / backgroundTexture.getSize().y);  
-
+    this->background.setScale((float)this->window->getSize().x / backgroundTexture.getSize().x, (float)this->window->getSize().y / backgroundTexture.getSize().y);
 }
-
-
-// void Game::initEnemies()
-// {
-//     /**
-//      * @return void
-//      *
-//      * Initialize the enemies
-//      *
-//     */
-//     this->enemy.setPosition(10.f, 10.f);
-//     this->enemy.setSize(sf::Vector2f(100.f, 100.f));
-//     this->enemy.setFillColor(sf::Color::Cyan);
-// }
 
 //Constructors / Destructors
 
@@ -301,16 +286,6 @@ void Game::renderText(sf::RenderTarget &target)
 {
     target.draw(this->uiText);
 }
-
-// void Game::renderEnemies(sf::RenderTarget &target)
-// {
-//     //Rendering all the enemies
-//     for (auto &e : this->enemies)
-//     {
-//         target.draw(e);
-//     }
-// }
-
 void Game::render()
 {
     /*
@@ -337,6 +312,6 @@ void Game::render()
         this->player.render(this->window);
         this->virus.render(this->window);
     }
-    
+
     this->window->display();
 }

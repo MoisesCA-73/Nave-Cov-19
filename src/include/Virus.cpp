@@ -6,7 +6,7 @@ void Virus::initVariables()
 {
     //this->movementSpeed = 5.f;
     this->health = 10.f;
-    this->points = 5.f;
+    this->points = 1;
     //this->maxEntities = 5;
     //this->entitySpawnTimerMax = 20.f;
     //this->entitySpawnTimer = this->entitySpawnTimerMax;
@@ -51,7 +51,7 @@ int Virus::getHealth() const
 {
     return this->health;
 }
-float Virus::getPoints() const
+int Virus::getPoints() const
 {
     return this->points;
 }
@@ -61,7 +61,7 @@ void Virus::setHealth(int health)
     this->health = health;
 }
 
-void Virus::setPoints(float points)
+void Virus::setPoints(int points)
 {
     this->points = points;
 }

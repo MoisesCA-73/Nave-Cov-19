@@ -15,8 +15,10 @@ private:
     void initVariables() override;
     void initTexture() override;
     void initShape() override;
+
 public:
     VirusAlpha();
+    int getPoints() const;
 };
 
-#endif  //VIRUS_ALPHA_H
+#endif //VIRUS_ALPHA_H

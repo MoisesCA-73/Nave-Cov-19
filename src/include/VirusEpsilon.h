@@ -9,8 +9,10 @@ private:
     void initVariables() override;
     void initTexture() override;
     void initShape() override;
+
 public:
     VirusEpsilon();
+    int getPoints();
 };
 
-#endif  //VIRUS_EPSILON_H
+#endif //VIRUS_EPSILON_H

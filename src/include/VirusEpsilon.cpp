@@ -2,6 +2,7 @@
 
 void VirusEpsilon::initVariables()
 {
+    this->movementSpeed = 2.f;
     this->health = 100;
     this->points = 15;
 }
@@ -27,4 +28,8 @@ VirusEpsilon::VirusEpsilon()
 int VirusEpsilon::getPoints()
 {
     return this->points;
+}
+float VirusEpsilon::getMovementS()
+{
+    return this->movementSpeed;
 }

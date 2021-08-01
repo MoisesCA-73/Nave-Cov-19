@@ -19,7 +19,6 @@ class Enemies
 {
 private:
     //Enemies objects
-    float movementSpeed;
     float enemySpawnTimer;
     float enemySpawnTimerMax;
     int maxEnemies;

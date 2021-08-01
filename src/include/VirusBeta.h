@@ -13,6 +13,7 @@ protected:
 public:
     VirusBeta();
     int getPoints() const;
+    float getMovementS();
 };
 
 #endif //VIRUS_BETA_H

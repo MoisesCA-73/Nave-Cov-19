@@ -2,6 +2,7 @@
 
 void VirusBeta::initVariables()
 {
+    this->movementSpeed = 2.f;
     this->health = 100;
     this->points = 5;
 }
@@ -28,4 +29,8 @@ VirusBeta::VirusBeta()
 int VirusBeta::getPoints() const
 {
     return this->points;
+}
+float VirusBeta::getMovementS()
+{
+    return this->movementSpeed;
 }

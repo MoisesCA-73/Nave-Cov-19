@@ -2,6 +2,7 @@
 
 void VirusGamma::initVariables()
 {
+    this->movementSpeed = 2.f;
     this->health = 100;
     this->points = 20;
 }
@@ -27,4 +28,8 @@ VirusGamma::VirusGamma()
 int VirusGamma::getPoints()
 {
     return this->points;
+}
+float VirusGamma::getMovementS()
+{
+    return this->movementSpeed;
 }

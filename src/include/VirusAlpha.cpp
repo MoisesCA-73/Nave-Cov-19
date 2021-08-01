@@ -2,6 +2,7 @@
 
 void VirusAlpha::initVariables()
 {
+    this->movementSpeed = 2.f;
     this->health = 100;
     this->points = 1;
 }
@@ -27,4 +28,8 @@ VirusAlpha::VirusAlpha()
 int VirusAlpha::getPoints() const
 {
     return this->points;
+}
+float VirusAlpha::getMovementS()
+{
+    return this->movementSpeed;
 }

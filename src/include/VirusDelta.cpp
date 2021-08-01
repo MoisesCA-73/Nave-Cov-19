@@ -2,6 +2,7 @@
 
 void VirusDelta::initVariables()
 {
+    this->movementSpeed = 2.f;
     this->health = 100;
     this->points = 10;
 }
@@ -27,4 +28,9 @@ VirusDelta::VirusDelta()
 int VirusDelta::getPoints()
 {
     return this->points;
+}
+
+float VirusDelta::getMovementS()
+{
+    return this->movementSpeed;
 }

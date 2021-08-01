@@ -13,6 +13,7 @@ private:
 public:
     VirusDelta();
     int getPoints();
+    float getMovementS();
 };
 
 #endif //VIRUS_DELTA_H

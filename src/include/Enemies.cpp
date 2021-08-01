@@ -55,7 +55,7 @@ void Enemies::update(sf::RenderTarget *target, Player &player)
     }
     for (int i = 0; i < this->enemies.size(); i++)
     {
-        this->enemies[i]->getShape().move(0.f, 5.f);
+        this->enemies[i]->getShape().move(0.f, 1.f * this->enemies[i]->getMovementS());
         if (this->enemies[i]->getPos().y > target->getSize().y)
         {
             this->enemies.erase(this->enemies.begin() + i);

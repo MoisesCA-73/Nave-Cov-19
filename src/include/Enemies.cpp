@@ -86,9 +86,10 @@ void Enemies::update(sf::RenderTarget *target, Player &player)
                 deleted = true;
                 if (this->enemies[i]->getHealth() <= 0.f)
                 {
+                    player.setPoints(player.getPoints() + this->enemies[i]->getPoints());
                     this->enemies.erase(this->enemies.begin() + i);
                     i--;
-                    player.setPoints(player.getPoints() + this->enemies[i]->getPoints());
+                    break;
                 }
             }
         }

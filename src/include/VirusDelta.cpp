@@ -2,7 +2,7 @@
 
 void VirusDelta::initVariables()
 {
-    this->movementSpeed = 2.f;
+    this->movementSpeed = 3.5f;
     this->health = 100;
     this->points = 10;
 }
@@ -16,7 +16,7 @@ void VirusDelta::initTexture()
 void VirusDelta::initShape()
 {
     this->shape.setTexture(&this->texture);
-    this->shape.setSize(sf::Vector2f(60.f, 60.f));
+    this->shape.setSize(sf::Vector2f(80.f, 80.f));
 }
 
 VirusDelta::VirusDelta()

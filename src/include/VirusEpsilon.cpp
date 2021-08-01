@@ -2,7 +2,7 @@
 
 void VirusEpsilon::initVariables()
 {
-    this->movementSpeed = 2.f;
+    this->movementSpeed = 1.5f;
     this->health = 100;
     this->points = 15;
 }
@@ -16,7 +16,7 @@ void VirusEpsilon::initTexture()
 void VirusEpsilon::initShape()
 {
     this->shape.setTexture(&this->texture);
-    this->shape.setSize(sf::Vector2f(80.f, 80.f));
+    this->shape.setSize(sf::Vector2f(90.f, 90.f));
 }
 
 VirusEpsilon::VirusEpsilon()

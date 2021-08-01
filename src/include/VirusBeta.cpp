@@ -16,7 +16,7 @@ void VirusBeta::initTexture()
 void VirusBeta::initShape()
 {
     this->shape.setTexture(&this->texture);
-    this->shape.setSize(sf::Vector2f(40.f, 40.f));
+    this->shape.setSize(sf::Vector2f(60.f, 60.f));
     this->shape.setPosition(0, 0);
 }
 

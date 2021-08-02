@@ -7,6 +7,21 @@ void Enemies::initVariables()
     this->enemySpawnTimer = this->enemySpawnTimerMax;
 }
 
+void Enemies::initExplosion()
+{
+    this->destroyed = true;
+    if(!this->explosionTexture.loadFromFile("Textures/explosion.png"))
+    {
+        std::cout << "ERROR::ENEMIES::INITEXPLOSION:: Failed to load texture!" << '\n';
+    }
+    else
+    {
+        this->explosion.setTexture(&this->explosionTexture);
+    }
+    this->timer = 50.f;
+}
+
+
 //sonido de choque bala y virus
 void Enemies::initSound()
 {
@@ -21,6 +36,7 @@ Enemies::Enemies()
 {
     this->initVariables();
     this->initSound();
+    this->initExplosion();
 }
 void Enemies::spawnEnemy(sf::RenderTarget *target)
 {
@@ -99,9 +115,16 @@ void Enemies::update(sf::RenderTarget *target, Player &player)
                 if (this->enemies[i]->getHealth() <= 0.f)
                 {
                     player.setPoints(player.getPoints() + this->enemies[i]->getPoints());
+
+                    this->explosion.setSize(enemies[i]->getShape().getSize());
+                    this->explosion.setPosition(enemies[i]->getPos());
+                    this->explosions.push_back(this->explosion);
+                    this->timers.push_back(this->timer);
+                    this->destroyed = true;
+
                     this->enemies.erase(this->enemies.begin() + i);
                     i--;
-                    this->sonido.setVolume(3);//Volumen, no elevar a mas de 10 :)
+                    this->sonido.setVolume(3);//Volume, do not raise higher than 10 :)
                     this->sonido.play();
                     break;
                 }
@@ -115,5 +138,19 @@ void Enemies::render(sf::RenderTarget *target)
     for (auto &e : this->enemies)
     {
         target->draw(e->getShape());
+    }
+    for (int i = 0; i < this->timers.size(); i++)
+    {
+        if (this->timers[i] > 0.f)
+        {
+            target->draw(this->explosions[i]);
+            this->timers[i] -= 1.f;
+        }
+        else
+        {
+            this->timers.erase(this->timers.begin() + i);
+            this->explosions.erase(this->explosions.begin() + i);
+            i--;
+        }
     }
 }

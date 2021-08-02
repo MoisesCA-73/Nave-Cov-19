@@ -22,15 +22,26 @@ private:
     float enemySpawnTimer;
     float enemySpawnTimerMax;
     int maxEnemies;
-    //Sonido
+    //Audio
     sf::SoundBuffer buffer;
     sf::Sound sonido;
     
+    //Explosion sprite
+    sf::RectangleShape explosion;
+    std::vector<sf::RectangleShape> explosions;
+    float timer;
+    std::vector<float> timers;
+
+    sf::Texture explosionTexture;
+    bool destroyed;
+
+    //Enemies members
     std::unique_ptr<Virus> enemy;
     std::vector<std::unique_ptr<Virus>> enemies;
     //Private functions
     void initVariables();
     void initEnemies();
+    void initExplosion();
     void initSound();
 
 public:

@@ -24,7 +24,9 @@ private:
     int maxEnemies;
     //Audio
     sf::SoundBuffer buffer;
+    sf::SoundBuffer buffer1;
     sf::Sound sonido;
+    sf::Sound sonido1;
     
     //Explosion sprite
     sf::RectangleShape explosion;

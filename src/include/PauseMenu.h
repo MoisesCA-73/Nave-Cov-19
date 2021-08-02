@@ -21,15 +21,11 @@ private:
     int selectedItemIndex;
     sf::Font font;
     std::vector<sf::Text> menu;
-    
+
     sf::Text mensaje;
 
     bool isOpened;
     bool closeGame;
-
-    //Private functions
-    void initFonts();
-    void initText();
 
 public:
     //Constructor - Destructor

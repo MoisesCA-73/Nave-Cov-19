@@ -16,14 +16,13 @@ Menu::Menu()
         this->menu.push_back(text);
     }
 
-    menu[0].setString("Jugar");
-    menu[1].setString("Opciones");
-    menu[2].setString("Salir");
+    menu[0].setString("Play");
+    menu[1].setString("Options");
+    menu[2].setString("Exit");
 
     for (size_t i = 0; i < MAX_NUMBER_OF_ITEMS; i++)
     {
-        menu[i].setPosition(sf::Vector2f((400 - (menu[i].getGlobalBounds().width / 2)), 600 / (MAX_NUMBER_OF_ITEMS + 1) * (i+1)));
-
+        menu[i].setPosition(sf::Vector2f((400 - (menu[i].getGlobalBounds().width / 2)), 600 / (MAX_NUMBER_OF_ITEMS + 1) * (i + 1)));
     }
 
     this->isOpened = true;

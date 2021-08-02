@@ -19,6 +19,7 @@
 
 #include "Player.h"
 #include "Menu.h"
+#include "PauseMenu.h"
 #include "Enemies.h"
 class Game
 {
@@ -29,19 +30,18 @@ private:
 
     //Menus
     Menu startMenu;
-    Menu pauseMenu;
+    PauseMenu pauseMenu;
     Menu deathMenu;
 
     //Background
     sf::Texture backgroundTexture;
     sf::Sprite background;
-    
+
     //Mouse  positions
     sf::Vector2i mousePosWindow;
     sf::Vector2f mousePosView;
     //Resources
     sf::Font font;
-
     //Text
     sf::Text uiText;
 
@@ -64,6 +64,7 @@ private:
     void initWindow();
     void initFonts();
     void initText();
+    void initSound();
 
 public:
     //Constructors / Destructors

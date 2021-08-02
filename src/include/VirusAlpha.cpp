@@ -8,7 +8,7 @@ void VirusAlpha::initVariables()
 }
 void VirusAlpha::initTexture()
 {
-    if (!this->texture.loadFromFile("Textures/virus.png"))
+    if (!this->texture.loadFromFile("Textures/virus2.png"))
     {
         std::cout << "ERROR::VIRUSALPHA::INITEXTURE::COULD NOT LOAD TEXTURE!" << std::endl;
     }

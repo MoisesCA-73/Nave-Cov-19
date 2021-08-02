@@ -20,7 +20,6 @@ protected:
     float movementSpeed;
     sf::Texture texture;
     sf::RectangleShape shape;
-    std::vector<sf::RectangleShape> entities;
     //Protected functions
     virtual void initVariables() = 0;
     virtual void initTexture() = 0;

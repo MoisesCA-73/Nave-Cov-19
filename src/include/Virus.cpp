@@ -13,10 +13,10 @@ void Virus::initVariables()
 }
 void Virus::initTexture()
 {
-    if (!this->texture.loadFromFile("Textures/virus.png"))
+    /*if (!this->texture.loadFromFile("Textures/virus.png"))
     {
         std::cout << "ERROR::VIRUS::INITEXTURE::COULD NOT LOAD TEXTURE!" << std::endl;
-    }
+    }*/
 }
 void Virus::initShape()
 {
@@ -26,14 +26,6 @@ void Virus::initShape()
 }
 
 //Constructor and destructor
-/*
-Virus::Virus()
-{
-    //this->initVariables();
-    //this->initTexture();
-    //this->initShape();
-}
-*/
 Virus::~Virus()
 {
 }

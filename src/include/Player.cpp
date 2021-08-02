@@ -41,7 +41,7 @@ sf::RectangleShape Player::getShape() const
 {
     return this->shape;
 }
-Bullet Player::getBullet() const
+Bullet &Player::getBullet()
 {
     return this->bullet;
 }

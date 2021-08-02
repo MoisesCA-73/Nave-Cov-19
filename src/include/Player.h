@@ -37,7 +37,7 @@ public:
 
     //Accessors
     sf::RectangleShape getShape() const;
-    Bullet getBullet() const;
+    Bullet &getBullet();
     int getPoints() const;
     int &getHp();
 

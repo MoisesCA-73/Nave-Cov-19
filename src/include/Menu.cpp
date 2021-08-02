@@ -73,6 +73,6 @@ void Menu::draw(sf::RenderWindow &window)
 {
     for (size_t i = 0; i < MAX_NUMBER_OF_ITEMS; i++)
     {
-        window.draw(menu[i]);
+        window.draw(this->menu[i]);
     }
 }

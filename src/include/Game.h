@@ -20,6 +20,7 @@
 #include "Player.h"
 #include "Menu.h"
 #include "PauseMenu.h"
+#include "DeathMenu.h"
 #include "Enemies.h"
 class Game
 {
@@ -31,7 +32,7 @@ private:
     //Menus
     Menu startMenu;
     PauseMenu pauseMenu;
-    Menu deathMenu;
+    DeathMenu deathMenu;
 
     //Background
     sf::Texture backgroundTexture;

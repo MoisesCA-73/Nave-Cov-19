@@ -1,12 +1,10 @@
-#include "PauseMenu.h"
-
+#include "DeathMenu.h"
 #include <iostream>
-
-PauseMenu::PauseMenu()
+DeathMenu::DeathMenu()
 {
     if (!this->font.loadFromFile("Fonts/Debug.ttf"))
     {
-        std::cout << "ERROR::PAUSE::INITFONTS:: Failed to load font!" << '\n';
+        std::cout << "ERROR::DEATH::INITFONTS:: Failed to load font!" << '\n';
     }
     for (int i = 0; i < MAX_NUMBER_OF_ITEMS; i++)
     {
@@ -16,8 +14,7 @@ PauseMenu::PauseMenu()
         text.setFillColor(sf::Color::White);
         this->menu.push_back(text);
     }
-
-    menu[0].setString("Continue");
+    menu[0].setString("YOU ARE INFECTED");
     menu[1].setString("Retry");
     menu[2].setString("Exit");
 
@@ -30,40 +27,31 @@ PauseMenu::PauseMenu()
     this->closeGame = false;
 }
 
-PauseMenu::~PauseMenu()
+bool DeathMenu::getIsOpened() const
 {
+    return this->isOpened;
 }
-//Accesors
-bool PauseMenu::getIsOpened() const
+
+bool DeathMenu::getCloseGame() const
 {
-    return isOpened;
+    return this->closeGame;
 }
-bool PauseMenu::getCloseGame() const
-{
-    return closeGame;
-}
-bool PauseMenu::getRetry() const
+
+bool DeathMenu::getRetry() const
 {
     return this->retry;
 }
-//functions
-void PauseMenu::setIsopened(bool initiate)
+
+void DeathMenu::setIsopened(bool initiate)
 {
     this->isOpened = initiate;
 }
-void PauseMenu::update(const sf::RenderTarget *target, sf::Vector2f mousePosView)
+
+void DeathMenu::update(const sf::RenderTarget *target, sf::Vector2f mousePosView)
 {
-    for (int i = 0; i < MAX_NUMBER_OF_ITEMS; i++)
+    for (int i = 1; i < MAX_NUMBER_OF_ITEMS; i++)
     {
-        if (this->menu[0].getGlobalBounds().contains(mousePosView))
-        {
-            menu[0].setFillColor(sf::Color::Red);
-            if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
-            {
-                this->isOpened = false;
-            }
-        }
-        else if (this->menu[1].getGlobalBounds().contains(mousePosView))
+        if (this->menu[1].getGlobalBounds().contains(mousePosView))
         {
             menu[1].setFillColor(sf::Color::Red);
             if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
@@ -86,7 +74,8 @@ void PauseMenu::update(const sf::RenderTarget *target, sf::Vector2f mousePosView
         }
     }
 }
-void PauseMenu::draw(sf::RenderWindow &window)
+
+void DeathMenu::draw(sf::RenderWindow &window)
 {
     for (size_t i = 0; i < MAX_NUMBER_OF_ITEMS; i++)
     {

@@ -14,7 +14,7 @@
 
 #include <vector>
 #include <ctime>
-
+class Game;
 class Enemies
 {
 private:
@@ -27,7 +27,7 @@ private:
     sf::SoundBuffer buffer1;
     sf::Sound sonido;
     sf::Sound sonido1;
-    
+
     //Explosion sprite
     sf::RectangleShape explosion;
     std::vector<sf::RectangleShape> explosions;
@@ -45,6 +45,8 @@ private:
     void initEnemies();
     void initExplosion();
     void initSound();
+    //Friend class
+    friend class Game;
 
 public:
     Enemies();

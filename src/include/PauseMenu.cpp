@@ -25,8 +25,8 @@ PauseMenu::PauseMenu()
     {
         menu[i].setPosition(sf::Vector2f((400 - (menu[i].getGlobalBounds().width / 2)), 600 / (MAX_NUMBER_OF_ITEMS + 1) * (i + 1)));
     }
-
-    this->isOpened = true;
+    this->retry = false;
+    this->isOpened = false;
     this->closeGame = false;
 }
 
@@ -42,6 +42,10 @@ bool PauseMenu::getCloseGame() const
 {
     return closeGame;
 }
+bool PauseMenu::getRetry() const
+{
+    return this->retry;
+}
 //functions
 void PauseMenu::setIsopened(bool initiate)
 {
@@ -56,7 +60,6 @@ void PauseMenu::update(const sf::RenderTarget *target, sf::Vector2f mousePosView
             menu[0].setFillColor(sf::Color::Red);
             if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
             {
-                //this->selectedItemIndex = i;
                 this->isOpened = false;
             }
         }
@@ -65,7 +68,7 @@ void PauseMenu::update(const sf::RenderTarget *target, sf::Vector2f mousePosView
             menu[1].setFillColor(sf::Color::Red);
             if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
             {
-                //this->selectedItemIndex = i;
+                this->retry = true;
                 this->isOpened = false;
             }
         }

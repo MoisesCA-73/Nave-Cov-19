@@ -76,18 +76,12 @@ public:
     const bool getEndGame() const;
 
     //Functions
-    //void spawnEnemy();
-
     void pollEvents();
     void updateMousePosition();
     void updateText();
-    //void updateEnemies();
-    //void updateMenu();
-
     void update();
-
+    void restart();
     void renderText(sf::RenderTarget &target);
-    //void renderEnemies(sf::RenderTarget &target);
     void render();
 };
 

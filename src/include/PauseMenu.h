@@ -26,6 +26,7 @@ private:
 
     bool isOpened;
     bool closeGame;
+    bool retry;
 
 public:
     //Constructor - Destructor
@@ -34,6 +35,7 @@ public:
     //Accesors
     bool getIsOpened() const;
     bool getCloseGame() const;
+    bool getRetry() const;
     //Functions
     void setIsopened(bool initiate);
     void update(const sf::RenderTarget *target, sf::Vector2f mousePosView);

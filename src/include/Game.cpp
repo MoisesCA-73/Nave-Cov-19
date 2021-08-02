@@ -146,6 +146,10 @@ void Game::update()
         {
             this->endGame = this->pauseMenu.getCloseGame();
         }
+        else if (this->pauseMenu.getRetry())
+        {
+            this->restart();
+        }
     }
     else
     {
@@ -162,6 +166,13 @@ void Game::update()
             this->endGame = true;
         }
     }
+}
+
+void Game::restart()
+{
+    this->player.setHP(30);
+    this->player.setPoints(0);
+    this->virus.enemies.clear();
 }
 
 void Game::renderText(sf::RenderTarget &target)
@@ -187,7 +198,6 @@ void Game::render()
     {
         this->pauseMenu.draw(*this->window);
     }
-
     else
     {
 

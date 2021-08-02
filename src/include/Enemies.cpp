@@ -14,7 +14,12 @@ void Enemies::initSound()
     {
         std::cout << "ERROR::ENEMIES::INITSOUND:: Failed to load sound!" << '\n';
     }
+    if (!this->buffer1.loadFromFile("Sounds/choque1.wav"))
+    {
+        std::cout << "ERROR::ENEMIES::INITSOUND:: Failed to load sound!" << '\n';
+    }
     this->sonido.setBuffer(buffer);
+    this->sonido1.setBuffer(buffer1);
 }
 
 Enemies::Enemies()
@@ -75,16 +80,17 @@ void Enemies::update(sf::RenderTarget *target, Player &player)
             player.getHp() -= 1;
         }
     }
-    unsigned counter = 0;
+    
     for (int i = 0; i < this->enemies.size(); i++)
     {
         if (this->enemies[i]->getShape().getGlobalBounds().contains(player.getShape().getPosition()))
         {
             player.Danio(1); //solo quita 1 de vida por el momento cuando choca con un virus
-            //delete this->enemies.at(counter);
-            this->enemies.erase(this->enemies.begin() + counter);
+            this->sonido1.setVolume(3);//Volumen, no elevar a mas de 10 :)
+            this->sonido1.play();
+            this->enemies.erase(this->enemies.begin() + i);
         }
-        ++counter;
+       
         bool deleted = false;
         for (int j = 0; j < player.getBullet().getBullets().size() && deleted == false; j++)
         {
@@ -101,6 +107,8 @@ void Enemies::update(sf::RenderTarget *target, Player &player)
                     player.setPoints(player.getPoints() + this->enemies[i]->getPoints());
                     this->enemies.erase(this->enemies.begin() + i);
                     i--;
+                    this->sonido.setVolume(3);//Volumen, no elevar a mas de 10 :)
+                    this->sonido.play();
                     this->sonido.setVolume(3);//Volumen, no elevar a mas de 10 :)
                     this->sonido.play();
                     break;

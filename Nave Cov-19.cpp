@@ -13,8 +13,6 @@ int main()
 
     //Initialize game engine
     Game game;
-    
-    std::cout << "Game created succesfully" << '\n';
 
     //Game loop
     while (game.running() && !game.getEndGame())

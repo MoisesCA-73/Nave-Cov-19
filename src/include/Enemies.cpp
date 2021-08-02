@@ -102,7 +102,7 @@ void Enemies::update(sf::RenderTarget *target, Player &player)
         if (this->enemies[i]->getShape().getGlobalBounds().contains(player.getShape().getPosition()))
         {
             player.Danio(1); //solo quita 1 de vida por el momento cuando choca con un virus
-            this->sonido1.setVolume(3);//Volumen, no elevar a mas de 10 :)
+            this->sonido1.setVolume(5);//Volumen, no elevar a mas de 10 :)
             this->sonido1.play();
             this->enemies.erase(this->enemies.begin() + i);
         }

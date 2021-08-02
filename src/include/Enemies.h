@@ -24,7 +24,9 @@ private:
     int maxEnemies;
     //Sonido
     sf::SoundBuffer buffer;
+    sf::SoundBuffer buffer1;
     sf::Sound sonido;
+    sf::Sound sonido1;
     
     std::unique_ptr<Virus> enemy;
     std::vector<std::unique_ptr<Virus>> enemies;

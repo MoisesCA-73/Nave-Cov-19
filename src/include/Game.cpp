@@ -153,18 +153,9 @@ void Game::update()
     }
     else
     {
-        if (!this->endGame)
+        if (this->deathMenu.getIsOpened())
         {
-
-            this->updateText();
-
-            this->player.update(this->window);
-            this->virus.update(this->window, this->player);
-        }
-        else if (this->player.getHp() <= 0)
-        {
-            this->deathMenu.setIsopened(true);
-            this->deathMenu.update(this->window, this->mousePosView);
+            this->deathMenu.update(this->window, mousePosView);
             if (this->deathMenu.getCloseGame())
             {
                 this->endGame = this->deathMenu.getCloseGame();
@@ -173,6 +164,18 @@ void Game::update()
             {
                 this->restart();
             }
+        }
+        else if (this->player.getHp() <= 0)
+        {
+            this->deathMenu.setIsopened(true);
+        }
+        else if (!this->endGame)
+        {
+
+            this->updateText();
+
+            this->player.update(this->window);
+            this->virus.update(this->window, this->player);
         }
     }
 }

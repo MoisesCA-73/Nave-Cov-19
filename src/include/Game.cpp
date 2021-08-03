@@ -7,14 +7,10 @@ void Game::initVariables()
     this->window = nullptr;
 
     //Game Logic
-
     this->endGame = false;
-    //this->points = 0;
-    //this->health = 30;
     this->enemySpawnTimerMax = 20.f;
     this->enemySpawnTimer = this->enemySpawnTimerMax;
     this->maxEnemies = 5;
-    this->mouseHeld = false;
 }
 
 void Game::initWindow()
@@ -24,15 +20,13 @@ void Game::initWindow()
 
     this->window = new sf::RenderWindow(this->videoMode, "Nave Cov-19", sf::Style::Titlebar | sf::Style::Close);
     this->window->setFramerateLimit(60);
+    sf::Image icon;
+    icon.loadFromFile("Textures/virus.png");
+    this->window->setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
 }
 
 void Game::initFonts()
 {
-    if (!this->backgroundTexture.loadFromFile("Textures/background.jpg"))
-    {
-        std::cout << "ERROR::GAME::INITFONTS:: Failed to load font!"
-                  << "\n";
-    }
     if (!this->font.loadFromFile("Fonts/Dosis-Light.ttf"))
     {
         std::cout << "ERROR::GAME::INITFONTS:: Failed to load font!"
@@ -46,9 +40,19 @@ void Game::initText()
     this->uiText.setCharacterSize(32);
     this->uiText.setFillColor(sf::Color::White);
     this->uiText.setString("NONE");
+}
 
-    this->background.setTexture(backgroundTexture);
-    this->background.setScale((float)this->window->getSize().x / backgroundTexture.getSize().x, (float)this->window->getSize().y / backgroundTexture.getSize().y);
+void Game::initBackground()
+{
+    if (!this->backgroundTexture.loadFromFile("Textures/background.jpg"))
+    {
+        std::cout << "ERROR::GAME::INITBACKGROUND:: Failed to load texture!"
+                  << "\n";
+    }
+
+    this->background.setTexture(this->backgroundTexture);
+    this->background.setScale((float)this->window->getSize().x / backgroundTexture.getSize().x, 
+                              (float)this->window->getSize().y / backgroundTexture.getSize().y);
 }
 
 //Constructors / Destructors
@@ -59,6 +63,7 @@ Game::Game()
     this->initWindow();
     this->initFonts();
     this->initText();
+    this->initBackground();
 }
 
 Game::~Game()
@@ -191,6 +196,7 @@ void Game::renderText(sf::RenderTarget &target)
 {
     target.draw(this->uiText);
 }
+
 void Game::render()
 {
     /*
@@ -216,7 +222,6 @@ void Game::render()
     }
     else
     {
-
         //Draw game objects
         this->window->draw(background);
         this->renderText(*this->window);

@@ -27,13 +27,15 @@ private:
     sf::RectangleShape shape;
     sf::Texture bulletTexture;
     sf::Vector2f size;
-    sf::Vector2f direction;
+    //direccion
+
     //Sonido
     sf::SoundBuffer buffer;
     sf::Sound sonido;
 
     //Bullets moving
     std::vector<sf::RectangleShape> bullets;
+
     //Bullet attributes
     int damage;
     float fireRate;
@@ -57,16 +59,15 @@ public:
 
     //Accessors
     float getFireRate() const;
-    std::vector<sf::RectangleShape> getBullets() const;
     int getDamage() const;
+    std::vector<sf::RectangleShape> getBullets() const;
 
     //Mutators
     void setFireRate(float fireRate);
 
+    //Methods
     void spawnBullet(sf::Vector2f coord);
     void shoot(sf::Vector2f coord);
-    //void dealDamage(Virus enemy);
-    //Functions
     void updateBullets();
     void updateInput(sf::Vector2f coord);
     void update(sf::Vector2f coord);

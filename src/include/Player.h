@@ -19,12 +19,13 @@ private:
     float movementSpeed;
     int hp;
     int points;
+
     sf::Texture playerTexture;
 
     //Bullets that are shot
     Bullet bullet;
 
-    //Funciones privadas
+    //Private functions
     void initVariables();
     void initTexture();
     void initShape();

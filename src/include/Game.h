@@ -22,6 +22,7 @@
 #include "PauseMenu.h"
 #include "DeathMenu.h"
 #include "Enemies.h"
+
 class Game
 {
 private:
@@ -48,24 +49,25 @@ private:
 
     //Game logic
     bool endGame;
-    //unsigned points;
-    //int health;
+    
     float enemySpawnTimer;
     float enemySpawnTimerMax;
     int maxEnemies;
-    bool mouseHeld;
 
     //Jugador - la nave
     Player player;
 
     //Game objects
     Enemies virus;
+    //Items powerups;
+
     //Private functions
     void initVariables();
     void initWindow();
     void initFonts();
     void initText();
     void initSound();
+    void initBackground();
 
 public:
     //Constructors / Destructors
@@ -73,8 +75,8 @@ public:
     virtual ~Game();
 
     //Accessors
-    const bool running() const;
-    const bool getEndGame() const;
+    const bool running() const;     //Returns true if the windows is opened
+    const bool getEndGame() const;  //Returns true if the game has finished
 
     //Functions
     void pollEvents();

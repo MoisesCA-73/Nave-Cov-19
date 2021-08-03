@@ -51,21 +51,21 @@ void DeathMenu::update(const sf::RenderTarget *target, sf::Vector2f mousePosView
 {
     for (int i = 1; i < MAX_NUMBER_OF_ITEMS; i++)
     {
-        if (this->menu[1].getGlobalBounds().contains(mousePosView))
+        if (this->menu[i].getGlobalBounds().contains(mousePosView))
         {
-            menu[1].setFillColor(sf::Color::Red);
+            menu[i].setFillColor(sf::Color::Red);
             if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
             {
-                this->retry = true;
-                this->isOpened = false;
-            }
-        }
-        else if (this->menu[2].getGlobalBounds().contains(mousePosView))
-        {
-            menu[2].setFillColor(sf::Color::Red);
-            if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
-            {
-                this->closeGame = true;
+                this->selectedItemIndex = i;
+                if (this->selectedItemIndex == 1)
+                {
+                    this->retry = true;
+                    this->isOpened = false;
+                }
+                else if (this->selectedItemIndex == 2)
+                {
+                    this->closeGame = true;
+                }
             }
         }
         else

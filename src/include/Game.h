@@ -47,6 +47,9 @@ private:
     //Text
     sf::Text uiText;
 
+    //Music
+    sf::Music music;
+    
     //Game logic
     bool endGame;
     

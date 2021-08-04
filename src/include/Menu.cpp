@@ -27,6 +27,8 @@ Menu::Menu()
 
     this->isOpened = true;
     this->closeGame = false;
+
+    this->menuBuffer.loadFromFile("Sounds/fondo-inicio.wav");
 }
 
 Menu::~Menu()

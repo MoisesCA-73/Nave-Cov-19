@@ -55,6 +55,16 @@ void Game::initBackground()
                               (float)this->window->getSize().y / backgroundTexture.getSize().y);
 }
 
+void Game::initSound()
+{
+    if (!this->music.openFromFile("Sounds/fondo-juego.wav"))
+    {
+        std::cout << "ERROR::GAME::INITSOUND:: Failed to load sound!" << '\n';
+    }
+    this->music.setVolume(3);
+    this->music.play();
+}
+
 //Constructors / Destructors
 
 Game::Game()
@@ -64,6 +74,7 @@ Game::Game()
     this->initFonts();
     this->initText();
     this->initBackground();
+    this->initSound();
 }
 
 Game::~Game()
@@ -138,6 +149,7 @@ void Game::update()
 
     if (this->startMenu.getIsOpened())
     {
+        
         this->startMenu.update(this->window, this->mousePosView);
         if (this->startMenu.getCloseGame())
         {
@@ -178,7 +190,6 @@ void Game::update()
         {
 
             this->updateText();
-
             this->player.update(this->window);
             this->virus.update(this->window, this->player);
         }

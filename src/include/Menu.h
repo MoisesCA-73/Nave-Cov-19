@@ -25,6 +25,10 @@ private:
     bool isOpened;
     bool closeGame;
 
+    sf::SoundBuffer menuBuffer;
+
+    friend class Game;
+
 public:
     //Constructor - Destructor
     Menu();

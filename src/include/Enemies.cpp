@@ -99,7 +99,7 @@ void Enemies::update(sf::RenderTarget *target, Player &player)
     
     for (int i = 0; i < this->enemies.size(); i++)
     {
-        if (this->enemies[i]->getShape().getGlobalBounds().contains(player.getShape().getPosition()))
+        if (this->enemies[i]->getShape().getGlobalBounds().intersects(player.getShape().getGlobalBounds()))
         {
             player.Danio(1); //solo quita 1 de vida por el momento cuando choca con un virus
             this->sonido1.setVolume(5);//Volumen, no elevar a mas de 10 :)
@@ -111,10 +111,9 @@ void Enemies::update(sf::RenderTarget *target, Player &player)
         for (int j = 0; j < player.getBullet().getBullets().size() && deleted == false; j++)
         {
             //When there is contact between a bullet and an enemy
-            if (this->enemies[i]->getShape().getGlobalBounds().contains(player.getBullet().getBullets()[j].getPosition()))
+            if (this->enemies[i]->getShape().getGlobalBounds().intersects(player.getBullet().getBullets()[j].getGlobalBounds()))
             {
                 this->enemies[i]->setHealth(this->enemies[i]->getHealth() - player.getBullet().getDamage());
-                //player.getBullet().getBullets().erase(player.getBullet().getBullets().begin() + j);
                 player.bullet.bullets.erase(player.bullet.bullets.begin() + j);
                 j--;
                 deleted = true;

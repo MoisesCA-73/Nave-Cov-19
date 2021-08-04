@@ -40,6 +40,7 @@ private:
     int damage;
     float fireRate;
     float fireRateCount;
+    float fireRateMax;
     float movementSpeed;
 
     //Private functions

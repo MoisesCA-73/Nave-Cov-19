@@ -13,12 +13,14 @@ protected:
 public:
     
     //virtual ~PowerUp();
-
+    sf::RectangleShape &getShape();
+    const sf::Vector2f &getPos();
+    float getMovementS();
     
     void update();
     void render(sf::RenderTarget* target);
 
-    virtual void makeChange(Player player);
+    virtual void makeChange(Player& player);
 };
 
 #endif //POWERUP_H

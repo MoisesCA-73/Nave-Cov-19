@@ -2,7 +2,7 @@
 
 void Items::initVariables()
 {
-    this->itemSpawnTimerMax = 300.f;
+    this->itemSpawnTimerMax = 900.f;
     this->itemSpawnTimer = this->itemSpawnTimerMax;
 }
 Items::Items()
@@ -49,25 +49,9 @@ void Items::update(sf::RenderTarget *target, Player &player)
             i--;
         }
     }
-    /*
-    for (int i = 0; i < this->enemies.size(); i++)
-    {
-        //bool deleted {false};
-        for (int j = 0; j < player.getBullet().getBullets().size(); j++)
-        {
-            //When there is contact between a bullet and an enemy
-            if(this->enemies[i]->getShape().getGlobalBounds().contains(player.getBullet().getBullets()[j].getPosition()))
-            {
-                //this->enemies[i]->setHealth(this->enemies[i]->getHealth() - player.getBullet().getDamage());
-                //player.getBullet().getBullets().erase(player.getBullet().getBullets().begin() + j);
-                //j--;
-            }
-        }
-    }
-    */
     for (int i = 0; i < this->items.size(); i++)
     {
-        if (this->items[i]->getShape().getGlobalBounds().contains(player.getShape().getPosition()))
+        if (this->items[i]->getShape().getGlobalBounds().intersects(player.getShape().getGlobalBounds()))
         {
             this->items[i]->makeChange(player);
             this->items.erase(this->items.begin() + i);

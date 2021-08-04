@@ -8,6 +8,7 @@ void Bullet::initVariables()
     this->shape.setSize(this->size);
     this->fireRate = 10.f;
     this->fireRateCount = this->fireRate;
+    this->fireRateMax = 4.9;
     this->damage = 50;
 }
 
@@ -55,7 +56,9 @@ std::vector<sf::RectangleShape> Bullet::getBullets() const
 }
 void Bullet::setFireRate(float fireRate)
 {
-    this->fireRate = this->fireRate;
+    if (!(fireRate < fireRateMax)){
+        this->fireRate = fireRate;
+    }
 }
 
 void Bullet::shoot(sf::Vector2f coord)

@@ -7,9 +7,10 @@ class IncreaseHP : public PowerUp
 {
 private:
     virtual void initTexture() override;
+    virtual void initShape() override;
 public:
     IncreaseHP();
-    virtual void makeChange(Player player) override;
+    virtual void makeChange(Player &player) override;
 
 };
 #endif  //DOUBLE_FIRE_RATE_H

@@ -11,6 +11,9 @@ void Game::initVariables()
     this->enemySpawnTimerMax = 20.f;
     this->enemySpawnTimer = this->enemySpawnTimerMax;
     this->maxEnemies = 5;
+
+    this->itemSpawnTimerMax = 900.f;
+    this->itemSpawnTimer = this->itemSpawnTimerMax;
 }
 
 void Game::initWindow()
@@ -192,6 +195,7 @@ void Game::update()
             this->updateText();
             this->player.update(this->window);
             this->virus.update(this->window, this->player);
+            this->powerup.update(this->window, this->player);
         }
     }
 }
@@ -239,6 +243,7 @@ void Game::render()
 
         this->player.render(this->window);
         this->virus.render(this->window);
+        this->powerup.render(this->window);
     }
 
     this->window->display();

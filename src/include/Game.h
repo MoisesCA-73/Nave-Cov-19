@@ -22,6 +22,7 @@
 #include "PauseMenu.h"
 #include "DeathMenu.h"
 #include "Enemies.h"
+#include "Items.h"
 
 class Game
 {
@@ -57,12 +58,16 @@ private:
     float enemySpawnTimerMax;
     int maxEnemies;
 
+    float itemSpawnTimer;
+    float itemSpawnTimerMax;
+
     //Jugador - la nave
     Player player;
 
     //Game objects
     Enemies virus;
     //Items powerups;
+    Items powerup;
 
     //Private functions
     void initVariables();

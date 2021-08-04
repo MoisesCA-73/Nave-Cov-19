@@ -11,6 +11,10 @@
 
 #include "Bullet.h"
 class Enemies;
+class Items;
+class DoubleFireRate;
+class IncreaseHP;
+
 class Player
 {
 private:
@@ -31,6 +35,9 @@ private:
     void initShape();
 
     friend class Enemies;
+    friend class Items;
+    friend class DoubleFireRate;
+    friend class IncreaseHP;
 
 public:
     Player(float x = 0.f, float y = 0.f);

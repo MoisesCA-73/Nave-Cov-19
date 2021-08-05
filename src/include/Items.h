@@ -7,7 +7,7 @@
 
 #include <vector>
 #include <ctime>
-
+class Game;
 class Items
 {
 private:
@@ -18,10 +18,11 @@ private:
 
     std::unique_ptr<PowerUp> item;
     std::vector<std::unique_ptr<PowerUp>> items;
-    
+
     //Private functions
     void initVariables();
     void initItems();
+    friend class Game;
 
 public:
     Items();

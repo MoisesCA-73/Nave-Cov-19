@@ -54,7 +54,7 @@ void Game::initBackground()
     }
 
     this->background.setTexture(this->backgroundTexture);
-    this->background.setScale((float)this->window->getSize().x / backgroundTexture.getSize().x, 
+    this->background.setScale((float)this->window->getSize().x / backgroundTexture.getSize().x,
                               (float)this->window->getSize().y / backgroundTexture.getSize().y);
 }
 
@@ -152,7 +152,7 @@ void Game::update()
 
     if (this->startMenu.getIsOpened())
     {
-        
+
         this->startMenu.update(this->window, this->mousePosView);
         if (this->startMenu.getCloseGame())
         {
@@ -205,6 +205,7 @@ void Game::restart()
     this->player.setHP(30);
     this->player.setPoints(0);
     this->virus.enemies.clear();
+    this->powerup.items.clear();
 }
 
 void Game::renderText(sf::RenderTarget &target)

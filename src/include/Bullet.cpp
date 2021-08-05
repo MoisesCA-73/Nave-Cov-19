@@ -4,7 +4,7 @@ void Bullet::initVariables()
 {
     this->movementSpeed = 20.f;
     this->shape.setTexture(&this->bulletTexture);
-    this->size = sf::Vector2f(20.f, 40.f);
+    this->size = sf::Vector2f(30.f, 80.f);
     this->shape.setSize(this->size);
     this->fireRate = 10.f;
     this->fireRateCount = this->fireRate;
@@ -15,7 +15,7 @@ void Bullet::initVariables()
 
 void Bullet::initTexture()
 {
-    if (!this->bulletTexture.loadFromFile("Textures/bullet-temporary.png"))
+    if (!this->bulletTexture.loadFromFile("Textures/vacuna.png"))
     {
         std::cout << "ERROR::BULLET::INITTEXTURE:: Failed to load texture!" << '\n';
     }
@@ -67,7 +67,7 @@ void Bullet::setFireRate(float fireRate)
 void Bullet::shoot(sf::Vector2f coord)
 {
 
-    this->shape.setPosition(coord.x + 12.5, coord.y);
+    this->shape.setPosition(coord.x + 10.5, coord.y);
     this->bullets.push_back(this->shape);
 }
 

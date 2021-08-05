@@ -21,7 +21,6 @@ private:
     //Enemies objects
     float enemySpawnTimer;
     float enemySpawnTimerMax;
-    int maxEnemies;
     //Audio
     sf::SoundBuffer buffer;
     sf::SoundBuffer buffer1;
@@ -31,11 +30,10 @@ private:
     //Explosion sprite
     sf::RectangleShape explosion;
     std::vector<sf::RectangleShape> explosions;
-    float timer;
-    std::vector<float> timers;
+    float explosionTimer;
+    std::vector<float> explosionTimers;
 
     sf::Texture explosionTexture;
-    bool destroyed;
 
     //Enemies members
     std::unique_ptr<Virus> enemy;

@@ -18,6 +18,7 @@ private:
 
     std::unique_ptr<PowerUp> item;
     std::vector<std::unique_ptr<PowerUp>> items;
+    
     //Private functions
     void initVariables();
     void initItems();

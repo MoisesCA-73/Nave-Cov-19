@@ -2,14 +2,12 @@
 
 void Enemies::initVariables()
 {
-    this->maxEnemies = 5.f;
     this->enemySpawnTimerMax = 20.f;
     this->enemySpawnTimer = this->enemySpawnTimerMax;
 }
 
 void Enemies::initExplosion()
 {
-    this->destroyed = true;
     if(!this->explosionTexture.loadFromFile("Textures/explosion.png"))
     {
         std::cout << "ERROR::ENEMIES::INITEXPLOSION:: Failed to load texture!" << '\n';
@@ -18,7 +16,7 @@ void Enemies::initExplosion()
     {
         this->explosion.setTexture(&this->explosionTexture);
     }
-    this->timer = 50.f;
+    this->explosionTimer = 50.f;
 }
 
 
@@ -74,18 +72,16 @@ void Enemies::spawnEnemy(sf::RenderTarget *target)
 
 void Enemies::update(sf::RenderTarget *target, Player &player)
 {
-    if (this->enemies.size() < this->maxEnemies)
+    if (this->enemySpawnTimer >= this->enemySpawnTimerMax)
     {
-        if (this->enemySpawnTimer >= this->enemySpawnTimerMax)
-        {
-            this->spawnEnemy(target);
-            this->enemySpawnTimer = 0.f;
-        }
-        else
-        {
-            this->enemySpawnTimer += 1.f;
-        }
+        this->spawnEnemy(target);
+        this->enemySpawnTimer = 0.f;
     }
+    else
+    {
+        this->enemySpawnTimer += 1.f;
+    }
+    
     for (int i = 0; i < this->enemies.size(); i++)
     {
         this->enemies[i]->getShape().move(0.f, 1.f * this->enemies[i]->getMovementS());
@@ -124,8 +120,7 @@ void Enemies::update(sf::RenderTarget *target, Player &player)
                     this->explosion.setSize(enemies[i]->getShape().getSize());
                     this->explosion.setPosition(enemies[i]->getPos());
                     this->explosions.push_back(this->explosion);
-                    this->timers.push_back(this->timer);
-                    this->destroyed = true;
+                    this->explosionTimers.push_back(this->explosionTimer);
 
                     this->enemies.erase(this->enemies.begin() + i);
                     i--;
@@ -146,16 +141,16 @@ void Enemies::render(sf::RenderTarget *target)
     {
         target->draw(e->getShape());
     }
-    for (int i = 0; i < this->timers.size(); i++)
+    for (int i = 0; i < this->explosionTimers.size(); i++)
     {
-        if (this->timers[i] > 0.f)
+        if (this->explosionTimers[i] > 0.f)
         {
             target->draw(this->explosions[i]);
-            this->timers[i] -= 1.f;
+            this->explosionTimers[i] -= 1.f;
         }
         else
         {
-            this->timers.erase(this->timers.begin() + i);
+            this->explosionTimers.erase(this->explosionTimers.begin() + i);
             this->explosions.erase(this->explosions.begin() + i);
             i--;
         }

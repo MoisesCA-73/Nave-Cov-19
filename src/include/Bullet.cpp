@@ -10,6 +10,7 @@ void Bullet::initVariables()
     this->fireRateCount = this->fireRate;
     this->fireRateMax = 4.9;
     this->damage = 50;
+    this->isDFR = false;
 }
 
 void Bullet::initTexture()
@@ -59,6 +60,8 @@ void Bullet::setFireRate(float fireRate)
     if (!(fireRate < fireRateMax)){
         this->fireRate = fireRate;
     }
+    this->DFRtimer = 500.f;
+    this->isDFR = true;
 }
 
 void Bullet::shoot(sf::Vector2f coord)
@@ -107,6 +110,15 @@ void Bullet::update(sf::Vector2f coord)
 {
     this->updateInput(coord);
     this->updateBullets();
+    if (isDFR)
+    {
+        this->DFRtimer -= 1.f;
+        if (this->DFRtimer <= 0)
+        {
+            this->isDFR = false;
+            this->fireRate = 10.f;
+        }
+    }
 }
 
 void Bullet::render(sf::RenderTarget *target)

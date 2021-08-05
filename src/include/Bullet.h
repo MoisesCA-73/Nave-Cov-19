@@ -43,6 +43,9 @@ private:
     float fireRateMax;
     float movementSpeed;
 
+    float DFRtimer;
+    bool isDFR;
+
     //Private functions
     void initVariables();
     void initTexture();
